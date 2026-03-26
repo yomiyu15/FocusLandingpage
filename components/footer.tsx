@@ -111,12 +111,12 @@ export function Footer() {
                 className="px-3 py-2 rounded-lg bg-focus-blue/20 border border-focus-yellow/30 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-focus-yellow transition-colors"
                 required
               />
-              <button
-                type="submit"
-                className="px-3 py-2 bg-focus-yellow text-focus-navy font-semibold rounded-lg hover:bg-white transition-colors text-sm"
-              >
-                Subscribe
-              </button>
+             <button
+  type="submit"
+  className="px-3 py-2 bg-focus-yellow text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors text-sm"
+>
+  Subscribe
+</button>
             </form>
           </div>
         </div>
