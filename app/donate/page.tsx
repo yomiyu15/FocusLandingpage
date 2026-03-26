@@ -67,7 +67,7 @@ export default function DonatePage() {
         {/* hero section */}
         <div className="text-center mb-8 space-y-3">
           <h1 className="text-2xl md:text-3xl font-black tracking-tight text-focus-navy">
-            Support Focus
+            Support FOCUS
           </h1>
           <p className="text-black-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
             your generosity empowers christian student fellowships across

@@ -68,7 +68,7 @@ export function FellowshipPage({ title, subtitle, heroIcon, cards }: FellowshipP
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/donate"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold bg-focus-blue text-white hover:bg-focus-navy transition-colors gap-2"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold bg-focus-yellow text-black hover:bg-focus-navy transition-colors gap-2"
                 >
                   Donate <ArrowRight size={18} />
                 </Link>

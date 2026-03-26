@@ -166,28 +166,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-focus-navy text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Join the Focus Ministry movement</h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
-            You can partner, volunteer, pray, and support student fellowship growth across campuses.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
-            <a
-              href="/partner"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-focus-yellow text-focus-navy font-bold hover:bg-focus-yellow/90 transition-colors gap-2"
-            >
-              Become a Partner <ArrowRight size={16} />
-            </a>
-            <a
-              href="/donate"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors"
-            >
-              Support Mission
-            </a>
-          </div>
-        </div>
-      </section>
+     
 
       <Footer />
     </div>
