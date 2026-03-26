@@ -28,7 +28,7 @@ export default function AboutPage() {
       year: 'Today',
       title: 'Ethiopia Focus',
       description:
-        'FOCUS continues to strengthen campus communities and local outreach through student-led ministry.',
+        'FOCUS continues to strengthen campus communities and Local outreach through student-led ministry.',
     },
   ]
 
@@ -143,7 +143,7 @@ export default function AboutPage() {
           <article className="rounded-2xl border border-gray-100 bg-focus-light p-8">
             <h2 className="text-2xl font-bold text-focus-navy mb-3">Ethiopia Focus</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Our local ministry focus includes weekly campus fellowship, student mentoring, community
+              Our Local ministry focus includes weekly campus fellowship, student mentoring, community
               service, and evangelism events in Ethiopia.
             </p>
             <ul className="space-y-2 text-sm text-gray-700">

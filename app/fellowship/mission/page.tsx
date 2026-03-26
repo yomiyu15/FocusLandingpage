@@ -6,7 +6,7 @@ export default function FellowshipMissionPage() {
   return (
     <FellowshipPage
       title="Mission"
-      subtitle="Preparing campus leaders to serve with purpose, build impact, and advance the Gospel locally and globally."
+      subtitle="Preparing campus leaders to serve with purpose, build impact, and advance the Gospel Locally and globally."
       heroIcon={<Target className="text-focus-yellow" />}
       cards={[
         {

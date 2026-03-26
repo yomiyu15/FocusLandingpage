@@ -19,7 +19,7 @@ export default function NewsPage() {
       title: 'Student Leader Spotlight: Community Impact',
       tag: 'Spotlight',
       excerpt:
-        'Highlighting student leaders who mobilized outreach and service projects in their local communities.',
+        'Highlighting student leaders who mobilized outreach and service projects in their Local communities.',
     },
   ]
 

@@ -16,7 +16,7 @@ export default function FellowshipSocialAffairsPage() {
         },
         {
           title: 'Service in Action',
-          body: 'Social affairs also include practical outreach—encouraging students to serve locally and impact their communities.',
+          body: 'Social affairs also include practical outreach—encouraging students to serve Locally and impact their communities.',
           icon: <HandHeart size={20} />,
         },
       ]}

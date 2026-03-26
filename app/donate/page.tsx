@@ -1,259 +1,310 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { CheckCircle, Heart, Zap, Building2, Copy, Lock, Globe, CreditCard, Check } from 'lucide-react'
+import { useState } from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import {
+  CheckCircle,
+  Heart,
+  Zap,
+  Building2,
+  Copy,
+  Lock,
+  Globe,
+  CreditCard,
+  Check,
+  Shield,
+  Users,
+  ArrowRight,
+  ExternalLink,
+  Sparkles,
+} from "lucide-react";
 
-type DonationFrequency = 'One-time' | 'Monthly' | 'Quarterly' | 'Annually'
+type DonationFrequency = "one-time" | "monthly" | "quarterly" | "annually";
 
 export default function DonatePage() {
-  const [frequency, setFrequency] = useState<DonationFrequency>('One-time')
-  const [intAmount, setIntAmount] = useState<string>('100')
-  const [locAmount, setLocAmount] = useState<string>('1000')
-  const [donorType, setDonorType] = useState<'individual' | 'organization'>('individual')
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
-  const [intInputFocus, setIntInputFocus] = useState(false)
-  const [locInputFocus, setLocInputFocus] = useState(false)
+  const [frequency, setFrequency] = useState<DonationFrequency>("one-time");
+  const [intAmount, setIntAmount] = useState<string>("100");
+  const [locAmount, setLocAmount] = useState<string>("1000");
+  const [donorType, setDonorType] = useState<"individual" | "organization">(
+    "individual",
+  );
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<"International" | "Local">(
+    "Local",
+  );
 
-  const internationalAmounts = [50, 100, 200, 500, 1000, 2000]
-  const localAmounts = [100, 500, 1000, 5000, 10000]
+  const InternationalAmounts = [50, 100, 200, 500, 1000, 2000];
+  const LocalAmounts = [100, 500, 1000, 5000, 10000];
 
   const bankAccounts = [
-    { bank: 'Awash Bank', acc: '01322233344555' },
-    { bank: 'Commercial Bank of Ethiopia', acc: '1000022233447' },
-     { bank: 'Cooperative Bank of Ormia', acc: '102221160001350' },
-    { bank: 'Dashen Bank', acc: '00254455566' },
-    { bank: 'Berhan Bank', acc: '2678899999' },
-    
-  ]
+    { bank: "Awash Bank", acc: "01322233344555", logo: "/assets/Awash.png" },
+    {
+      bank: "Commercial Bank of Ethiopia",
+      acc: "1000022233447",
+      logo: "/assets/cbe.png",
+    },
+    {
+      bank: "Cooperative Bank of Oromia",
+      acc: "102221160001350",
+      logo: "/assets/coop.png",
+    },
+    { bank: "Dashen Bank", acc: "00254455566", logo: "/assets/dashen.png" },
+    { bank: "Berhan Bank", acc: "2678899999", logo: "/assets/birhan.png" },
+  ];
 
   const handleCopy = (text: string, index: number) => {
-    navigator.clipboard.writeText(text)
-    setCopiedIndex(index)
-    setTimeout(() => setCopiedIndex(null), 2000)
-  }
+    navigator.clipboard.writeText(text);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex flex-col font-sans selection:bg-focus-yellow/30">
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-focus-yellow/30 text-focus-navy">
       <Header />
 
-      <main className="flex-1 py-16 px-4">
-        {/* Hero Section */}
-        <div className="max-w-5xl mx-auto text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-focus-navy tracking-tight mb-4">Support FOCUS</h3>
-          <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
-            Your generosity empowers <strong>Christian student fellowships</strong> 
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-12 md:py-20">
+        {/* hero section */}
+        <div className="text-center mb-8 space-y-3">
+          <h1 className="text-2xl md:text-3xl font-black tracking-tight text-focus-navy">
+            Support Focus
+          </h1>
+          <p className="text-black-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+            your generosity empowers christian student fellowships across
+            ethiopia and beyond
           </p>
-       
         </div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
-          {/* International Card */}
-          <section className="group bg-white rounded-3xl shadow-2xl shadow-slate-200/60 border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-focus-navy/5">
-            <div className="bg-focus-navy p-10 text-center relative overflow-hidden">
-              <Globe className="absolute -right-4 -top-4 text-white/5 w-32 h-32 rotate-12" />
-              <h2 className="text-2xl font-bold mb-2 text-white relative z-10">International Giving</h2>
-              <div className="flex items-center justify-center gap-2 text-focus-yellow/80 relative z-10">
-                <Lock size={12} />
-                <span className="text-[11px] uppercase tracking-widest font-bold">Stripe Secure Encryption</span>
-              </div>
-            </div>
+        {/* glassmorphism tab switcher */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1.5 bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200 shadow-sm">
+            <button
+              onClick={() => setActiveTab("International")}
+              className={`flex items-center gap-2.5 px-8 py-3 rounded-xl font-bold transition-all duration-300 ${
+                activeTab === "International"
+                  ? "bg-focus-navy text-white shadow-lg shadow-focus-navy/20 scale-105"
+                  : "text-slate-400 hover:text-focus-navy"
+              }`}
+            >
+              <Globe size={18} />
+              <span>International</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("Local")}
+              className={`flex items-center gap-2.5 px-8 py-3 rounded-xl font-bold transition-all duration-300 ${
+                activeTab === "Local"
+                  ? "bg-focus-navy text-white shadow-lg shadow-focus-navy/20 scale-105"
+                  : "text-slate-400 hover:text-focus-navy"
+              }`}
+            >
+              <CreditCard size={18} />
+              <span>Local (ETB)</span>
+            </button>
+          </div>
+        </div>
 
-            <div className="p-8 md:p-10 space-y-10">
-              {/* Frequency Toggle */}
-              <div className="space-y-4">
-                <label className="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2">
-                  1. Choose Frequency
-                </label>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-1.5 bg-slate-50 rounded-xl border border-slate-100">
-                  {(['One-time', 'Monthly', 'Quarterly', 'Annually'] as DonationFrequency[]).map((f) => (
-                    <button
-                      key={f}
-                      onClick={() => setFrequency(f)}
-                      aria-pressed={frequency === f}
-                      className={`py-3 text-[13px] font-bold rounded-lg transition-all duration-200 ${
-                        frequency === f
-                          ? 'bg-white shadow-md text-focus-navy scale-[1.02]'
-                          : 'text-slate-500 hover:text-focus-navy'
-                      }`}
-                    >
-                      {f}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Amount Selection */}
-              <div className="space-y-4">
-                <label className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                  2. Select Amount (USD)
-                </label>
-                <div className="grid grid-cols-3 gap-3">
-                  {internationalAmounts.map((amt) => (
-                    <button
-                      key={amt}
-                      onClick={() => setIntAmount(amt.toString())}
-                      className={`py-4 text-lg font-black rounded-xl border-2 transition-all duration-200 ${
-                        intAmount === amt.toString()
-                          ? 'border-focus-navy bg-focus-navy/5 text-focus-navy'
-                          : 'border-slate-100 bg-white text-slate-600 hover:border-slate-300'
-                      }`}
-                    >
-                      <span className="text-sm font-medium mr-0.5 opacity-70">$</span>
-                      {amt}
-                    </button>
-                  ))}
-                </div>
-                <div className={`relative group ${intInputFocus ? 'ring-2 ring-focus-navy/20 rounded-xl' : ''}`}>
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-lg">$</span>
-                  <input
-                    type="number"
-                    onChange={(e) => setIntAmount(e.target.value)}
-                    onFocus={() => setIntInputFocus(true)}
-                    onBlur={() => setIntInputFocus(false)}
-                    placeholder="Enter custom amount"
-                    className="w-full pl-10 pr-4 py-4 bg-slate-50 border-2 border-transparent rounded-xl text-base font-semibold outline-none transition-all focus:bg-white focus:border-focus-navy/20"
-                  />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          {/* main Donation card */}
+          <div className="lg:col-span-7 group">
+            <div className="bg-white rounded-[2rem] border border-slate-100 shadow-2xl shadow-slate-200/50 overflow-hidden h-full">
+              {/* dynamic header */}
+              {/* ultra-clean header with solid focus-navy bg */}
+              <div className="relative h-32 flex items-center justify-center bg-focus-navy">
+                <div className="relative text-center">
+                  <h2 className="text-2xl font-bold text-white mb-1">
+                    {activeTab === "International"
+                      ? "International Donation"
+                      : "Local Donation"}
+                  </h2>
+                  <p className="text-slate-300 text-[10px] tracking-[0.2em] uppercase font-black">
+                    {activeTab === "International"
+                      ? "support from anywhere in the world"
+                      : "fast & secure via chapa"}
+                  </p>
                 </div>
               </div>
 
-              {/* Donor Details */}
-              <div className="space-y-4 pt-4">
-                <div className="flex bg-slate-100 p-1 rounded-xl">
-                  <button
-                    onClick={() => setDonorType('individual')}
-                    aria-pressed={donorType === 'individual'}
-                    className={`flex-1 py-3 text-sm font-bold rounded-lg transition-all ${
-                      donorType === 'individual' ? 'bg-white text-focus-navy shadow-sm' : 'text-slate-500'
-                    }`}
-                  >
-                    <CheckCircle className="inline w-4 h-4 mr-1 text-focus-navy" /> Individual
-                  </button>
-                  <button
-                    onClick={() => setDonorType('organization')}
-                    aria-pressed={donorType === 'organization'}
-                    className={`flex-1 py-3 text-sm font-bold rounded-lg transition-all ${
-                      donorType === 'organization' ? 'bg-white text-focus-navy shadow-sm' : 'text-slate-500'
-                    }`}
-                  >
-                    <Building2 className="inline w-4 h-4 mr-1 text-focus-navy" /> Organization
-                  </button>
+              <div className="p-8 md:p-10 space-y-8">
+                {/* frequency chips - only for International */}
+                {activeTab === "International" && (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-black-400 uppercase tracking-widest">
+                      01. frequency
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {["one-time", "monthly", "quarterly", "annually"].map(
+                        (f) => (
+                          <button
+                            key={f}
+                            onClick={() => setFrequency(f as DonationFrequency)}
+                            className={`px-5 py-2.5 text-xs font-bold rounded-full border transition-all ${
+                              frequency === f
+                                ? "bg-focus-navy border-focus-navy text-white shadow-md"
+                                : "bg-slate-50 border-slate-200 text-black-500 hover:border-focus-navy/30"
+                            }`}
+                          >
+                            {f}
+                          </button>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* amount selector */}
+                <div className="space-y-4">
+                  <span className="text-[10px] font-black text-black-400 uppercase tracking-widest">
+                    {activeTab === "International"
+                      ? "02. amount (usd)"
+                      : "01. amount (etb)"}
+                  </span>
+                  <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+                    {(activeTab === "International"
+                      ? InternationalAmounts
+                      : LocalAmounts
+                    ).map((amt) => {
+                      const isSelected =
+                        (activeTab === "International"
+                          ? intAmount
+                          : locAmount) === amt.toString();
+                      return (
+                        <button
+                          key={amt}
+                          onClick={() =>
+                            activeTab === "International"
+                              ? setIntAmount(amt.toString())
+                              : setLocAmount(amt.toString())
+                          }
+                          className={`py-4 text-sm font-black rounded-2xl border-2 transition-all ${
+                            isSelected
+                              ? "border-focus-navy bg-focus-navy/5 text-focus-navy shadow-inner"
+                              : "border-slate-100 hover:border-slate-200 text-black-400"
+                          }`}
+                        >
+                          {activeTab === "International" && "$"}
+                          {amt}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className="grid gap-3">
-                  <label className="flex flex-col text-sm font-semibold">
-                    Full Name *
+
+                {/* form inputs */}
+                <div className="space-y-4">
+                  <span className="text-[10px] font-black text-black-400 uppercase tracking-widest">
+                    {activeTab === "International"
+                      ? "03. your info"
+                      : "02. your info"}
+                  </span>
+                  <div className="grid gap-4">
                     <input
-                      placeholder="Enter your full name"
-                      className="w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-base outline-none focus:ring-2 focus:ring-focus-navy/10 focus:border-focus-navy transition-all"
+                      type="text"
+                      placeholder="full name *"
+                      className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:bg-white focus:border-focus-navy focus:ring-4 focus:ring-focus-navy/5 transition-all"
                     />
-                  </label>
-                  <label className="flex flex-col text-sm font-semibold">
-                    Email Address *
-                    <input
-                      placeholder="Enter your email"
-                      className="w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-base outline-none focus:ring-2 focus:ring-focus-navy/10 focus:border-focus-navy transition-all"
-                    />
-                  </label>
+                    {activeTab === "International" ? (
+                      <input
+                        type="email"
+                        placeholder="email address *"
+                        className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:bg-white focus:border-focus-navy focus:ring-4 focus:ring-focus-navy/5 transition-all"
+                      />
+                    ) : (
+                      <textarea
+                        placeholder="message of encouragement (optional)"
+                        rows={3}
+                        className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:bg-white focus:border-focus-navy transition-all resize-none"
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Total Amount Summary */}
-              <div className="text-right text-slate-500 font-semibold text-sm">
-                Total Donation: ${intAmount || 0}
-              </div>
-
-              <button className="w-full py-5 bg-focus-navy text-white font-bold rounded-2xl hover:bg-slate-900 transition-all shadow-xl shadow-focus-navy/20 hover:shadow-focus-navy/30 active:scale-[0.98] uppercase tracking-[0.2em] text-sm">
-                Complete Donation
-              </button>
-            </div>
-          </section>
-
-          {/* Local Card */}
-          <section className="group bg-white rounded-3xl shadow-2xl shadow-slate-200/60 border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-focus-yellow/5">
-            <div className="bg-focus-navy p-10 text-center relative overflow-hidden border-b-4 border-focus-yellow">
-              <CreditCard className="absolute -right-4 -top-4 text-white/5 w-32 h-32 -rotate-12" />
-              <h2 className="text-2xl font-bold mb-2 text-white relative z-10">Local Donation (ETB)</h2>
-              <p className="text-slate-300 text-[11px] uppercase tracking-widest font-bold">Fast & Secure via Chapa</p>
-            </div>
-
-            <div className="p-8 md:p-10 space-y-10">
-              <div className="space-y-4">
-                <label className="text-xs font-bold uppercase tracking-widest text-slate-400">Select Amount</label>
-                <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
-                  {localAmounts.map((amt) => (
-                    <button
-                      key={amt}
-                      onClick={() => setLocAmount(amt.toString())}
-                      className={`py-4 text-base font-black rounded-xl border-2 transition-all ${
-                        locAmount === amt.toString()
-                          ? 'border-focus-navy bg-focus-navy/5 text-focus-navy'
-                          : 'border-slate-100 bg-white text-slate-600'
-                      }`}
-                    >
-                      {amt}
-                    </button>
-                  ))}
-                </div>
-                <div className={`flex rounded-xl overflow-hidden border-2 border-slate-100 focus-within:border-focus-navy/20 transition-all ${locInputFocus ? 'ring-2 ring-focus-navy/20' : ''}`}>
-                  <div className="bg-slate-50 text-focus-navy px-5 flex items-center font-black text-sm border-r border-slate-100">ETB</div>
-                  <input
-                    placeholder="Custom amount"
-                    className="flex-1 px-5 py-4 text-base font-semibold outline-none"
-                    onFocus={() => setLocInputFocus(true)}
-                    onBlur={() => setLocInputFocus(false)}
+                <button className="w-full py-5 bg-focus-navy text-white font-black rounded-[1.25rem] hover:bg-slate-800 transition-all shadow-xl shadow-focus-navy/20 flex items-center justify-center gap-3 group active:scale-[0.98]">
+                  <span className="uppercase tracking-[0.15em] text-sm">
+                    {activeTab === "International"
+                      ? "complete Donation"
+                      : "donate via chapa"}
+                  </span>
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
                   />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* bank transfer sidebar - always visible */}
+          <div className="lg:col-span-5 h-full">
+            <div className="bg-white rounded-[2rem] border border-slate-100 shadow-xl p-8 h-full">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-focus-yellow/10 flex items-center justify-center text-focus-navy">
+                    <Building2 size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase tracking-wider text-sm">
+                      bank transfer
+                    </h3>
+                    <p className="text-[10px] text-black-400 font-bold uppercase tracking-tight">
+                      direct ethiopian accounts
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <input placeholder="Full Name *" className="w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-base outline-none focus:border-focus-navy transition-all" />
-                <textarea placeholder="Message of encouragement (Optional)" rows={3} className="w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-base outline-none resize-none focus:border-focus-navy transition-all" />
-              </div>
+              <div className="space-y-3">
+                {bankAccounts.map((account, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleCopy(account.acc, idx)}
+                    className="w-full flex items-center justify-between p-5 rounded-2xl border border-slate-50 bg-slate-50/50 hover:bg-white hover:border-focus-yellow hover:shadow-lg hover:shadow-focus-yellow/10 transition-all text-left group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={account.logo}
+                        alt={account.bank}
+                        className="w-10 h-10 object-contain rounded-lg bg-white "
+                      />
 
-              {/* Total Amount Summary */}
-              <div className="text-right text-slate-500 font-semibold text-sm">
-                Total Donation: {locAmount || 0} ETB
-              </div>
-
-              <button className="w-full py-5 bg-focus-navy text-white font-bold rounded-2xl hover:bg-slate-900 transition-all shadow-xl shadow-focus-navy/20 uppercase tracking-[0.2em] text-sm">
-                Donate via Chapa
-              </button>
-
-              <div className="pt-8 border-t border-slate-100">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="h-[2px] flex-1 bg-slate-100"></div>
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Bank Transfer</span>
-                  <div className="h-[2px] flex-1 bg-slate-100"></div>
-                </div>
-                <div className="grid gap-3">
-                  {bankAccounts.map((account, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => handleCopy(account.acc, idx)}
-                      className="group flex items-center justify-between p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-focus-yellow hover:shadow-lg hover:shadow-focus-yellow/10 transition-all cursor-pointer relative"
-                    >
-                      <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-slate-400 uppercase mb-1">{account.bank}</span>
-                        <span className="text-sm font-mono font-bold text-focus-navy">{account.acc}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {copiedIndex === idx ? (
-                          <span className="text-[10px] font-bold text-green-600 animate-in fade-in zoom-in">COPIED</span>
-                        ) : (
-                          <Copy size={16} className="text-slate-300 group-hover:text-focus-navy transition-colors" />
-                        )}
+                      <div>
+                        <p className="text-[9px] font-black text-black-400 uppercase mb-1 tracking-widest">
+                          {account.bank}
+                        </p>
+                        <p className="font-mono font-bold text-focus-navy tracking-wider text-sm">
+                          {account.acc}
+                        </p>
                       </div>
                     </div>
-                  ))}
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white border border-slate-100 text-black-300 group-hover:text-focus-navy group-hover:border-focus-navy/20 transition-colors shadow-sm">
+                      {copiedIndex === idx ? (
+                        <Check size={14} className="text-green-500" />
+                      ) : (
+                        <Copy size={14} />
+                      )}
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-10 p-5 rounded-2xl bg-slate-900 text-white relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-125 transition-transform duration-700">
+                  <Shield size={60} />
                 </div>
+                <p className="text-[11px] font-bold text-focus-yellow uppercase mb-2 flex items-center gap-2">
+                  <Sparkles size={12} /> tracker note
+                </p>
+                <p className="text-xs text-black-300 leading-relaxed font-medium">
+                  after transfer, please use your name as reference. you can
+                  also share a screenshot with our team to help us process your
+                  gift faster.
+                </p>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </main>
 
       <Footer />
     </div>
-  )
+  );
 }

@@ -6,7 +6,7 @@ A modern, responsive website for FOCUS (Fellowship of Christian University Stude
 
 - **Landing Page** - Hero section with FOCUS mission/vision, impact statistics, and call-to-action buttons
 - **About Us Page** - Comprehensive information about FOCUS, core values, timeline, and global impact metrics
-- **Donation Page** - Two-panel donation system supporting International (USD) and Local/Ethiopia (ETB) donations with frequency options
+- **Donation Page** - Two-panel Donation system supporting International (USD) and Local/Ethiopia (ETB) Donations with frequency options
 - **Partner Form** - Professional, multi-section partnership application with organized information flow
 - **Navigation with Dropdowns** - Header with dropdown menu for About Us and other navigation items
 - **Responsive Design** - Mobile-first design optimized for all devices
@@ -25,11 +25,11 @@ app/
 ├── partner/
 │   └── page.tsx            # Partner application form (fancy multi-section design)
 ├── donate/
-│   └── page.tsx            # Donation form (international & local options)
+│   └── page.tsx            # Donation form (International & Local options)
 └── api/
     ├── partners/
     │   └── route.ts        # Partner form API endpoint
-    └── donations/
+    └── Donations/
         └── route.ts        # Donation form API endpoint
 
 components/
@@ -48,6 +48,7 @@ All colors derived from the official FOCUS logo for consistent branding:
 - **White**: #FFFFFF - Cards, primary backgrounds
 
 Color utilities are defined in `/app/globals.css`:
+
 - `.focus-blue`, `.bg-focus-blue`, `.border-focus-blue`
 - `.focus-yellow`, `.bg-focus-yellow`, `.border-focus-yellow`
 - `.focus-navy`, `.bg-focus-navy`, `.border-focus-navy`
@@ -72,7 +73,7 @@ pnpm install
 pnpm dev
 ```
 
-The site will be available at `http://localhost:3000`
+The site will be available at `http://Localhost:3000`
 
 ### Build for Production
 
@@ -89,9 +90,11 @@ pnpm start
 The frontend includes two API endpoints that your backend team can implement:
 
 ### 1. Partner Application Endpoint
+
 **POST** `/api/partners`
 
 Request body:
+
 ```typescript
 {
   firstName: string           // Required
@@ -109,6 +112,7 @@ Request body:
 ```
 
 Response:
+
 ```typescript
 {
   success: boolean
@@ -120,14 +124,17 @@ Response:
 ```
 
 **Partnership Types**:
+
 - **Financial Support**: Provide funds to support FOCUS programs
 - **Service Support**: Contribute skills, expertise, or resources
 - **Advocacy & Awareness**: Help spread FOCUS message and mission
 
 ### 2. Donation Endpoint
-**POST** `/api/donations`
+
+**POST** `/api/Donations`
 
 Request body:
+
 ```typescript
 {
   firstName: string           // Required
@@ -138,24 +145,26 @@ Request body:
   comment?: string
   donorType: string           // 'individual' | 'organization'
   organizationName?: string   // If donorType is 'organization'
-  donationType: string        // 'international' | 'local' (ETB)
+  DonationType: string        // 'International' | 'Local' (ETB)
 }
 ```
 
 Response:
+
 ```typescript
 {
   success: boolean
   message: string
-  donationId?: string
+  DonationId?: string
   redirectUrl?: string        // For Chapa payment processing
   amount: number
   currency: string            // 'USD' or 'ETB'
-  donationType: string
+  DonationType: string
 }
 ```
 
 **Note**: The form supports two currencies:
+
 - International: USD ($)
 - Local/Ethiopia: ETB (Ethiopian Birr)
 
@@ -164,10 +173,11 @@ Response:
 ### Step 1: Prepare for Render
 
 Ensure you have a `.gitignore` file with:
+
 ```
 node_modules/
 .next/
-.env.local
+.env.Local
 ```
 
 ### Step 2: Connect GitHub Repository
@@ -187,6 +197,7 @@ node_modules/
 ### Step 4: Environment Variables
 
 If using environment variables, add them in the Render dashboard:
+
 - Settings → Environment Variables
 
 ### Step 5: Deploy
@@ -196,21 +207,25 @@ Click "Deploy" and Render will build and host your website. It will be available
 ## Frontend Features
 
 ### Responsive Navigation
+
 - Desktop: Full navigation bar
 - Mobile: Hamburger menu with slide-out navigation
 
 ### Form Validation
+
 - Required field validation
 - Email format validation
-- Amount validation for donations
+- Amount validation for Donations
 - Real-time form state management
 
 ### User Feedback
+
 - Success messages with confirmation icons
 - Loading states on form submission
 - Auto-hide success messages after 5 seconds
 
 ### Accessibility
+
 - Semantic HTML structure
 - ARIA labels and roles
 - Keyboard navigation support
@@ -244,9 +259,9 @@ Click "Deploy" and Render will build and host your website. It will be available
 
 ## Key Notes for Backend Integration
 
-1. **Form Endpoints**: Replace the TODO comments in `/app/api/partners/route.ts` and `/app/api/donations/route.ts` with your backend API calls
+1. **Form Endpoints**: Replace the TODO comments in `/app/api/partners/route.ts` and `/app/api/Donations/route.ts` with your backend API calls
 
-2. **Payment Processing**: For donations, integrate your payment processor (Stripe, PayPal, etc.) in the donations endpoint
+2. **Payment Processing**: For Donations, integrate your payment processor (Stripe, PayPal, etc.) in the Donations endpoint
 
 3. **Error Handling**: Forms include try-catch blocks and error logging for debugging
 
@@ -257,6 +272,7 @@ Click "Deploy" and Render will build and host your website. It will be available
 ## Support
 
 For issues or questions about the frontend implementation, refer to:
+
 - Next.js Documentation: https://nextjs.org/docs
 - Tailwind CSS: https://tailwindcss.com
 - React Documentation: https://react.dev

@@ -225,11 +225,11 @@
   }
 
   .focus-blue {
-    @apply text-[#0052CC];
+    @apply text-[#0C0DF5];
   }
   
   .bg-focus-blue {
-    @apply bg-[#0052CC];
+    @apply bg-[#0C0DF5];
   }
   
   .border-focus-blue {
@@ -237,7 +237,7 @@
   }
 
   .focus-navy {
-    @apply text-[#001E6B];
+    @apply text-[#0C0DF5];
   }
   
   .bg-focus-navy {

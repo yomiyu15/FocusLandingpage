@@ -57,7 +57,7 @@ export default function PartnerPage() {
             <div className="mb-10">
               <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-3">
                 <User size={16} className="text-focus-blue" />
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">Section 01 — Identity</h2>
+                <h2 className="text-[10px] font-bold uppercase tracking-[0.15em] text-black-400">Section 01 — Identity</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div className="space-y-1.5">
@@ -82,7 +82,7 @@ export default function PartnerPage() {
             <div className="mb-10">
               <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-3">
                 <Globe size={16} className="text-focus-blue" />
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">Section 02 — Contact</h2>
+                <h2 className="text-[10px] font-bold uppercase tracking-[0.15em] text-black-400">Section 02 — Contact</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div className="space-y-1.5">
@@ -107,7 +107,7 @@ export default function PartnerPage() {
             <div className="mb-10">
               <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-3">
                 <Building2 size={16} className="text-focus-blue" />
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">Section 03 — Organization</h2>
+                <h2 className="text-[10px] font-bold uppercase tracking-[0.15em] text-black-400">Section 03 — Organization</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div className="space-y-1.5">
@@ -134,7 +134,7 @@ export default function PartnerPage() {
               >
                 {isLoading ? 'Sending...' : <>Submit Application <Send size={14} /></>}
               </button>
-              <p className="text-[10px] text-slate-400 font-medium tracking-tight">
+              <p className="text-[10px] text-black-400 font-medium tracking-tight">
                 Typically responds within 2-3 business days
               </p>
             </div>

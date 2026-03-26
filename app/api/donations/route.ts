@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 /**
- * POST /api/donations
+ * POST /api/Donations
  * 
- * Handles donation submissions and processes donation data.
+ * Handles Donation submissions and processes Donation data.
  * 
  * Expected request body:
  * {
@@ -11,15 +11,15 @@ import { NextRequest, NextResponse } from 'next/server'
  *   lastName: string
  *   email: string
  *   phone?: string
- *   donationType: 'one-time' | 'recurring'
+ *   DonationType: 'one-time' | 'recurring'
  *   amount: string (numeric)
- *   frequency?: 'monthly' | 'quarterly' | 'yearly' (for recurring donations)
+ *   frequency?: 'monthly' | 'quarterly' | 'yearly' (for recurring Donations)
  *   purpose?: string
  *   message?: string
  *   anonymous: boolean
  * }
  * 
- * Response: { success: true, message: string, donationId?: string, redirectUrl?: string }
+ * Response: { success: true, message: string, DonationId?: string, redirectUrl?: string }
  */
 export async function POST(request: NextRequest) {
   try {
@@ -37,19 +37,19 @@ export async function POST(request: NextRequest) {
     const amount = parseFloat(body.amount)
     if (isNaN(amount) || amount <= 0) {
       return NextResponse.json(
-        { error: 'Invalid donation amount' },
+        { error: 'Invalid Donation amount' },
         { status: 400 }
       )
     }
 
     // TODO: Connect to your backend service
     // This is where you'll:
-    // 1. Call your payment processor (Stripe, PayPal, etc.) to process the donation
-    // 2. Save donation data to your database
+    // 1. Call your payment processor (Stripe, PayPal, etc.) to process the Donation
+    // 2. Save Donation data to your database
     // 3. Return payment redirect URL or confirmation
     // 
     // Example for payment processing:
-    // const response = await fetch('YOUR_BACKEND_API_URL/donations', {
+    // const response = await fetch('YOUR_BACKEND_API_URL/Donations', {
     //   method: 'POST',
     //   headers: { 'Content-Type': 'application/json' },
     //   body: JSON.stringify({
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     console.log('Donation received:', { 
       donor: `${body.firstName} ${body.lastName}`,
       amount: `$${amount}`,
-      type: body.donationType,
+      type: body.DonationType,
       ...body 
     })
 
@@ -73,14 +73,14 @@ export async function POST(request: NextRequest) {
         success: true, 
         message: 'Donation submitted successfully',
         amount: amount,
-        donationType: body.donationType
+        DonationType: body.DonationType
       },
       { status: 201 }
     )
   } catch (error) {
-    console.error('Error processing donation:', error)
+    console.error('Error processing Donation:', error)
     return NextResponse.json(
-      { error: 'Failed to process donation' },
+      { error: 'Failed to process Donation' },
       { status: 500 }
     )
   }

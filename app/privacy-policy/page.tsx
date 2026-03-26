@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h3 className="text-focus-navy mb-2">Information We Collect</h3>
             <p className="text-gray-600">
-              We may collect contact and form information that you provide through donation,
+              We may collect contact and form information that you provide through Donation,
               partnership, and contact forms.
             </p>
           </div>
