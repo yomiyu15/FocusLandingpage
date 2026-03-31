@@ -27,17 +27,14 @@ export default function EventsPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-focus-blue to-focus-navy text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">Events & Calendar</h1>
-          <p className="text-base text-white/85 mt-3 max-w-3xl mx-auto">
-            Upcoming ministry events, registrations, and highlights from past gatherings.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 lg:px-8 flex-1">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+          <div className="lg:col-span-2 text-center mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-focus-navy">Events & Calendar</h1>
+            <p className="text-gray-600 mt-2 max-w-3xl mx-auto">
+              Upcoming ministry events, registrations, and highlights from past gatherings.
+            </p>
+          </div>
           <div>
             <h2 className="text-2xl font-bold text-focus-navy mb-5">Upcoming Events</h2>
             <div className="space-y-4">

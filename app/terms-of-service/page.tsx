@@ -6,17 +6,14 @@ export default function TermsOfServicePage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-focus-blue to-focus-navy text-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1>Terms of Service</h1>
-          <p className="text-white/85 mt-3">
-            Terms that apply when using Focus Ministry website pages and forms.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 lg:px-8 flex-1">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
         <article className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center mb-8">
+            <h1 className="text-focus-navy">Terms of Service</h1>
+            <p className="text-gray-600 mt-2">
+              Terms that apply when using Focus Ministry website pages and forms.
+            </p>
+          </div>
           <div>
             <h3 className="text-focus-navy mb-2">Use of Site</h3>
             <p className="text-gray-600">

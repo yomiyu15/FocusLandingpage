@@ -15,8 +15,8 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-3 text-focus-yellow">FOCUS</h3> {/* reduced mb-4 to mb-3 */}
             <p className="text-gray-300 text-sm leading-relaxed">
-              Fellowship of Oromo Christian University Students. Empowering Christian student
-              fellowship and leadership across campuses in Ethiopia.
+              Faith-based, interdenominational, and missional ministry established in 1998 GC
+              to equip and mobilize young leaders for holistic transformation.
             </p>
           </div>
 
@@ -37,6 +37,11 @@ export function Footer() {
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-focus-yellow transition-colors">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/structure" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                  Structure
                 </Link>
               </li>
               <li>
@@ -83,41 +88,46 @@ export function Footer() {
             <ul className="space-y-2 text-sm"> {/* reduced space-y-3 to space-y-2 */}
               <li className="flex items-start gap-2">
                 <Mail size={16} className="text-focus-yellow mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@focusministry.org" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  info@focusministry.org
+                <a href="mailto:focusministry26@gmail.com" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                  focusministry26@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Phone size={16} className="text-focus-yellow mt-0.5 flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  (123) 456-7890
+                <a href="tel:+251908222226" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                  +251 908 222 226
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="text-focus-yellow mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">123 Faith Avenue, Hope City, ST 12345</span>
+                <span className="text-gray-300">Addis Ababa, Ethiopia</span>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Social Platforms */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3">Stay Updated</h4>
-            <p className="text-gray-300 text-sm mb-3">Subscribe to get the latest news and updates.</p>
-            <form className="flex flex-col gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-3 py-2 rounded-lg bg-focus-blue/20 border border-focus-yellow/30 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-focus-yellow transition-colors"
-                required
-              />
-             <button
-  type="submit"
-  className="px-3 py-2 bg-focus-yellow text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors text-sm"
->
-  Subscribe
-</button>
-            </form>
+            <h4 className="font-semibold text-focus-yellow mb-3">Social Platforms</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                  Facebook: FOCUS MINISTRY
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/focusministry2" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                  Telegram: @focusministry2
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@FocusministryOfficial26" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                  YouTube: @FocusministryOfficial26
+                </a>
+              </li>
+              <li>
+                <span className="text-gray-300">TikTok: focus.media50</span>
+              </li>
+            </ul>
           </div>
         </div>
 

@@ -38,19 +38,18 @@ export default function DonatePage() {
   const LocalAmounts = [100, 500, 1000, 5000, 10000];
 
   const bankAccounts = [
-    { bank: "Awash Bank", acc: "01322233344555", logo: "/assets/Awash.png" },
+    { bank: "Commercial Bank of Ethiopia", acc: "1000360547168", logo: "/assets/cbe.png" },
     {
-      bank: "Commercial Bank of Ethiopia",
-      acc: "1000022233447",
-      logo: "/assets/cbe.png",
+      bank: "Awash Bank",
+      acc: "013521704779401",
+      logo: "/assets/Awash.png",
     },
     {
-      bank: "Cooperative Bank of Oromia",
-      acc: "102221160001350",
+      bank: "Cooperative Bank of Oromia (CBO)",
+      acc: "1010400265428",
       logo: "/assets/coop.png",
     },
-    { bank: "Dashen Bank", acc: "00254455566", logo: "/assets/dashen.png" },
-    { bank: "Berhan Bank", acc: "2678899999", logo: "/assets/birhan.png" },
+    { bank: "Oromia Bank (OB)", acc: "1100330900002", logo: "/assets/oromia.png" },
   ];
 
   const handleCopy = (text: string, index: number) => {
@@ -82,7 +81,7 @@ export default function DonatePage() {
               onClick={() => setActiveTab("International")}
               className={`flex items-center gap-2.5 px-8 py-3 rounded-xl font-bold transition-all duration-300 ${
                 activeTab === "International"
-                  ? "bg-focus-navy text-white shadow-lg shadow-focus-navy/20 scale-105"
+                  ? "bg-focus-yellow text-focus-navy shadow-lg shadow-focus-yellow/30 scale-105"
                   : "text-slate-400 hover:text-focus-navy"
               }`}
             >
@@ -93,7 +92,7 @@ export default function DonatePage() {
               onClick={() => setActiveTab("Local")}
               className={`flex items-center gap-2.5 px-8 py-3 rounded-xl font-bold transition-all duration-300 ${
                 activeTab === "Local"
-                  ? "bg-focus-navy text-white shadow-lg shadow-focus-navy/20 scale-105"
+                  ? "bg-focus-yellow text-focus-navy shadow-lg shadow-focus-yellow/30 scale-105"
                   : "text-slate-400 hover:text-focus-navy"
               }`}
             >
@@ -218,7 +217,7 @@ export default function DonatePage() {
                   </div>
                 </div>
 
-                <button className="w-full py-5 bg-focus-navy text-white font-black rounded-[1.25rem] hover:bg-slate-800 transition-all shadow-xl shadow-focus-navy/20 flex items-center justify-center gap-3 group active:scale-[0.98]">
+                <button className="w-full py-5 bg-focus-yellow text-focus-navy font-black rounded-[1.25rem] hover:bg-focus-yellow/90 transition-all shadow-xl shadow-focus-yellow/30 flex items-center justify-center gap-3 group active:scale-[0.98]">
                   <span className="uppercase tracking-[0.15em] text-sm">
                     {activeTab === "International"
                       ? "complete Donation"

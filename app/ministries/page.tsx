@@ -45,17 +45,14 @@ export default function MinistriesPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-focus-blue to-focus-navy text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">Ministries & Programs</h1>
-          <p className="text-base text-white/85 mt-3 max-w-3xl mx-auto">
-            How Focus Ministry serves students through fellowship, leadership, discipleship, and outreach.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 lg:px-8 flex-1">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="md:col-span-2 text-center mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-focus-navy">Ministries & Programs</h1>
+            <p className="text-gray-600 mt-2 max-w-3xl mx-auto">
+              How FOCUS Ministry serves students through fellowship, leadership, discipleship, and outreach.
+            </p>
+          </div>
           {programs.map((program) => (
             <article key={program.title} className="rounded-2xl border border-gray-100 bg-focus-light p-7 hover:shadow-md transition-shadow">
               <div className="inline-flex p-3 rounded-xl bg-focus-yellow/20 text-focus-blue mb-4">

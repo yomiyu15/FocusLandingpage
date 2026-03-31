@@ -65,17 +65,14 @@ export default function ResourcesPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-focus-blue to-focus-navy text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">Resources</h1>
-          <p className="text-base text-white/85 mt-3 max-w-3xl mx-auto">
-            Practical resources for student fellowship leaders, campus servants, and ministry teams.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 lg:px-8 flex-1">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
         <div className="max-w-6xl mx-auto mb-10">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-focus-navy">Resources</h1>
+            <p className="text-gray-600 mt-2 max-w-3xl mx-auto">
+              Practical resources for student fellowship leaders, campus servants, and ministry teams.
+            </p>
+          </div>
           <h2 className="text-2xl md:text-3xl font-bold text-focus-navy text-center mb-6">Resource Categories</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {quickGroups.map((group) => (
@@ -105,7 +102,7 @@ export default function ResourcesPage() {
               <p className="text-gray-600 mt-3 leading-relaxed">{resource.description}</p>
               <button
                 type="button"
-                className="mt-5 inline-flex items-center px-4 py-2 rounded-lg bg-white border border-gray-200 text-focus-navy font-semibold hover:border-focus-blue transition-colors"
+                className="mt-5 inline-flex items-center px-4 py-2 rounded-lg bg-focus-yellow text-focus-navy font-semibold hover:bg-focus-yellow/90 transition-colors"
               >
                 {resource.action}
               </button>

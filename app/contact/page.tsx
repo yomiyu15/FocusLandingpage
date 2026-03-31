@@ -9,17 +9,14 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-focus-blue to-focus-navy text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">Contact Focus Ministry</h1>
-          <p className="text-base text-white/85 mt-3 max-w-3xl mx-auto">
-            We would love to hear from students, campus fellowship leaders, partners, and supporters.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 lg:px-8 flex-1">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+          <div className="lg:col-span-2 text-center mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-focus-navy">Contact Focus Ministry</h1>
+            <p className="text-gray-600 mt-2 max-w-3xl mx-auto">
+              We would love to hear from students, campus fellowship leaders, partners, and supporters.
+            </p>
+          </div>
           <div className="rounded-2xl border border-gray-100 p-8 bg-focus-light">
             <h2 className="text-2xl font-bold text-focus-navy">Get in touch</h2>
             <p className="text-gray-600 mt-3">
@@ -43,7 +40,7 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-gray-100 p-8 bg-white">
             <h2 className="text-2xl font-bold text-focus-navy">Contact details</h2>
             <p className="text-gray-600 mt-3">
-              This page is UI-ready and can be connected to your backend contact API when ready.
+              Reach us through the official channels below.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -51,14 +48,14 @@ export default function ContactPage() {
                 <Mail className="text-focus-blue mt-1" size={18} />
                 <div>
                   <p className="font-semibold text-focus-navy">Email</p>
-                  <p className="text-gray-600">info@focusministry.org</p>
+                  <p className="text-gray-600">focusministry26@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="text-focus-blue mt-1" size={18} />
                 <div>
                   <p className="font-semibold text-focus-navy">Phone</p>
-                  <p className="text-gray-600">+251 900 000 000</p>
+                  <p className="text-gray-600">+251 908 222 226</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -66,6 +63,13 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-focus-navy">Address</p>
                   <p className="text-gray-600">Addis Ababa, Ethiopia</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="text-focus-blue mt-1" size={18} />
+                <div>
+                  <p className="font-semibold text-focus-navy">Telegram</p>
+                  <p className="text-gray-600">https://t.me/focusministry2</p>
                 </div>
               </div>
             </div>

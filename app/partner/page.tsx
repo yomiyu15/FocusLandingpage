@@ -130,7 +130,7 @@ export default function PartnerPage() {
               <button 
                 type="submit" 
                 disabled={isLoading || !isFormValid} 
-                className="w-full md:w-64 py-3.5 bg-[#001E6B] text-white text-[12px] font-bold uppercase tracking-widest rounded-full hover:bg-focus-blue active:scale-95 transition-all disabled:opacity-20 shadow-lg shadow-focus-blue/20 flex items-center justify-center gap-2"
+                className="w-full md:w-64 py-3.5 bg-focus-yellow text-focus-navy text-[12px] font-bold uppercase tracking-widest rounded-full hover:bg-focus-yellow/90 active:scale-95 transition-all disabled:opacity-20 shadow-lg shadow-focus-yellow/30 flex items-center justify-center gap-2"
               >
                 {isLoading ? 'Sending...' : <>Submit Application <Send size={14} /></>}
               </button>

@@ -25,23 +25,23 @@ const slides = [
   {
     image:
       "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=2000&q=80",
-    title: "Christian University Students",
+    title: "Holistic Transformation",
     subtitle:
-      "Fellowship rooted in the Gospel—discipleship, community, and mission on every campus.",
+      "Equipping and mobilizing students for spiritual growth, social responsibility, and mission-driven leadership.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=2000&q=80",
-    title: "Campus Impact",
+    title: "Campus & Community Impact",
     subtitle:
-      "Transforming lives and building leaders in every university we reach.",
+      "Serving campuses and communities through evangelism, discipleship, leadership development, and social outreach.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=2000&q=80",
-    title: "Faithful Community",
+    title: "Christ-Like Leaders",
     subtitle:
-      "A legacy of intentional ministry and gospel-centered fellowship.",
+      "Developing spiritually mature and socially engaged young leaders since 1998 GC.",
   },
 ];
 
@@ -50,36 +50,33 @@ export default function Home() {
 
   const fellowshipItems = [
     {
-      href: "/fellowship/family",
-      title: "Family",
-      description:
-        "Belonging through shared discipleship, mentorship, and prayer.",
-      icon: Heart,
-    },
-    {
-      href: "/fellowship/bible-study",
-      title: "Bible Study",
-      description:
-        "Gospel-centered Scripture teaching and practical application.",
-      icon: BookOpen,
-    },
-    {
       href: "/fellowship/evangelism",
       title: "Evangelism",
       description: "Share Christ with clarity, compassion, and courage.",
       icon: Megaphone,
     },
     {
-      href: "/fellowship/mission",
-      title: "Mission",
-      description:
-        "Train campus leaders to live missionally and serve with purpose.",
+      href: "/fellowship/girls-ministry",
+      title: "Girls Ministry",
+      description: "Empowering young women to grow in faith, purpose, and sisterhood.",
+      icon: Heart,
+    },
+    {
+      href: "/fellowship/leadership-development",
+      title: "Leadership Development",
+      description: "Equipping servant leaders with skills and character to impact campuses.",
       icon: Target,
     },
     {
-      href: "/fellowship/social-affairs",
-      title: "Social Affairs",
-      description: "Intentional events and service that strengthen community.",
+      href: "/fellowship/spiritual-nurturing",
+      title: "Spiritual Nurturing",
+      description: "Deepening faith through discipleship, prayer, and spiritual growth.",
+      icon: BookOpen,
+    },
+    {
+      href: "/fellowship/social-service-community-development",
+      title: "Social Service",
+      description: "Practical love in action—serving communities and creating change.",
       icon: Users,
     },
   ] as const;
@@ -179,9 +176,9 @@ export default function Home() {
 
                   <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-3">
                     {[
-                      { value: "50+", label: "Campuses" },
-                      { value: "10K+", label: "Students Reached" },
-                      { value: "500+", label: "Student Leaders" },
+                      { value: "88", label: "Fellowships" },
+                      { value: "30,000+", label: "Students/Year" },
+                      { value: "11", label: "Clusters" },
                     ].map((stat) => (
                       <div
                         key={stat.label}
@@ -220,9 +217,9 @@ export default function Home() {
             </h2>
             <div className="w-20 h-1.5 bg-focus-yellow mx-auto rounded-full" />
             <p className="text-gray-600 text-lg max-w-3xl mx-auto pt-4 leading-relaxed">
-              We are a vibrant community of students and professionals dedicated
-              to making the gospel visible on every campus. Our mission is
-              rooted in fellowship, discipleship, and transformative leadership.
+              We are a faith-based, interdenominational ministry committed to
+              equipping young people for holistic transformation in campuses and
+              communities through the Gospel of Jesus Christ.
             </p>
           </motion.div>
         </div>
@@ -232,17 +229,17 @@ export default function Home() {
             {
               title: "Our Mission",
               icon: Heart,
-              desc: "To reach every student with the love of Christ and build a foundation for lifelong faith.",
+              desc: "Providing holistic service for students, proclaiming the Gospel for all nations, and multiplying disciples.",
             },
             {
               title: "Our Values",
               icon: Shield,
-              desc: "Integrity, community, and excellence in everything we do to honor our calling.",
+              desc: "Faithfulness, prayer, love, compassion, justice, servanthood, discipleship, and harmony guide our work.",
             },
             {
               title: "Our Method",
               icon: BookOpen,
-              desc: "Small groups, campus-wide events, and one-on-one mentorship that changes lives.",
+              desc: "Structured fellowships, clusters, and departments deliver consistent discipleship and leadership development.",
             },
           ].map((item, i) => (
             <motion.div
@@ -300,23 +297,23 @@ export default function Home() {
             className="space-y-8"
           >
             <h2 className="text-4xl font-black text-gray-900 tracking-tight">
-              Why Partner With Us?
+              Why Partner With FOCUS?
             </h2>
             <div className="space-y-6">
               {[
                 {
-                  title: "Global Impact",
-                  desc: "500+ chapters across 75+ countries.",
+                  title: "Active National Movement",
+                  desc: "A rapidly growing campus ministry with structured systems and measurable impact.",
                   icon: Globe,
                 },
                 {
-                  title: "Future Leaders",
-                  desc: "Equipping students to lead with faith.",
+                  title: "Leadership Multiplication",
+                  desc: "Developing young leaders who serve Church, society, and national development.",
                   icon: Users,
                 },
                 {
-                  title: "Missional Focus",
-                  desc: "Every contribution fuels real impact.",
+                  title: "Mission-Driven Programs",
+                  desc: "Evangelism, girls ministry, spiritual nurturing, and social service working together.",
                   icon: Target,
                 },
               ].map((item, i) => (
@@ -350,11 +347,11 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-focus-yellow/10 blur-[80px] -ml-20 -mb-20" />
 
             <h2 className="text-3xl md:text-5xl font-black mb-6 relative z-10 leading-tight">
-              Let’s Build the Future <br />
+              Transform Lives & Communities <br />
             </h2>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 relative z-10">
-              Your partnership enables us to support students in their journey
-              of faith and leadership. Every gift makes a difference.
+              Your support helps FOCUS equip students to become Christ-like
+              leaders who make lasting impact in campuses, communities, and the nation.
             </p>
 
             <div className="flex justify-center gap-6 flex-wrap relative z-10">
@@ -367,7 +364,7 @@ export default function Home() {
               <Button
                 asChild
                 variant="outline"
-                className="border-focus-blue/30 text-focus-navy bg-white/70 h-14 px-12 rounded-2xl hover:bg-white transition-all text-lg"
+                className="bg-focus-yellow text-focus-navy h-14 px-12 rounded-2xl hover:bg-focus-yellow/90 transition-all text-lg border-0"
               >
                 <Link href="/contact">Get in Touch</Link>
               </Button>

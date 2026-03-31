@@ -6,17 +6,14 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-focus-blue to-focus-navy text-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1>Privacy Policy</h1>
-          <p className="text-white/85 mt-3">
-            How Focus Ministry handles and protects your information.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 lg:px-8 flex-1">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
         <article className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center mb-8">
+            <h1 className="text-focus-navy">Privacy Policy</h1>
+            <p className="text-gray-600 mt-2">
+              How Focus Ministry handles and protects your information.
+            </p>
+          </div>
           <div>
             <h3 className="text-focus-navy mb-2">Information We Collect</h3>
             <p className="text-gray-600">
