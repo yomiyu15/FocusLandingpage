@@ -3,45 +3,31 @@
 import { useState } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { CheckCircle, Send, User, FileText, Landmark } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { 
+  CheckCircle, User, Landmark, Sparkles, PenTool, 
+  GraduationCap, Briefcase, Church, Phone, Mail
+} from 'lucide-react'
 import { submitPartnerApplication } from '@/lib/api/content'
-import { donateButtonClass } from '@/lib/ui'
+import { Button } from '@/components/ui/button'
 
 export default function FocusFamilyForm() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    gender: '',
-    phone: '',
-    email: '',
-    university: '',
-    batchFrom: '',
-    batchTo: '',
-    occupation: '',
-    organization: '',
-    localChurch: '',
-    serviceType: '',
-    paymentMethod: '',
-    otherPayment: '',
-    membershipFee: false,
-    declarationName: '',
-    declarationSignature: '',
-    declarationDate: '',
+    fullName: '', gender: '', phone: '', email: '',
+    university: '', batchFrom: '', batchTo: '',
+    occupation: '', organization: '', localChurch: '',
+    serviceType: '', paymentMethod: '', otherPayment: '',
+    membershipFee: false, 
+    declarationName: '', declarationSignature: '', declarationDate: new Date().toISOString().split('T')[0],
   })
 
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
-  const genders = ['Male', 'Female']
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
     const checked = (e.target as HTMLInputElement).checked
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }))
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -50,162 +36,171 @@ export default function FocusFamilyForm() {
     try {
       await submitPartnerApplication(formData)
       setIsSubmitted(true)
-      setTimeout(() => setIsSubmitted(false), 5000)
     } finally {
       setIsLoading(false)
     }
   }
 
-  const isFormValid =
-    formData.fullName &&
-    formData.gender &&
-    formData.phone &&
-    formData.email &&
-    formData.membershipFee &&
-    formData.serviceType &&
-    formData.paymentMethod
+  const inputClass = "w-full bg-gray-50 border-2 border-gray-100 rounded-xl px-4 py-3 text-sm text-focus-navy placeholder:text-gray-400 focus:bg-white focus:border-focus-yellow transition-all outline-none font-medium"
+  const labelClass = "block text-[10px] font-black uppercase tracking-widest text-focus-navy/40 mb-1.5 ml-1"
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/40">
+    <div className="min-h-screen bg-slate-50 selection:bg-focus-yellow selection:text-black">
       <Header />
 
-      <section className="pt-10 pb-16 px-4 sm:px-6 lg:px-8 flex-1">
-        <div className="max-w-6xl mx-auto">
+      <main className="pt-16 pb-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          
+          {/* Compact Hero Section */}
+          <div className="text-center mb-10">
+            <h1 className="text-3xl md:text-5xl font-black text-focus-navy tracking-tight mb-3">
+              FOCUS Family <span className="text-focus-yellow">Subscription</span>
+            </h1>
+            <p className="text-gray-500 font-bold text-sm max-w-2xl mx-auto leading-relaxed italic">
+              "Providing holistic service for students, proclaiming the Gospel of Jesus Christ for all nation and Multiplying Disciples."
+            </p>
+          </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-focus-navy mb-8">
-            FOCUS Family Subscription Form
-          </h1>
-
-          <form
-            className="bg-white rounded-3xl p-6 md:p-12 shadow-lg"
-            onSubmit={handleSubmit}
-          >
-
-            {/* PERSONAL INFO */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <User />
-                <h2 className="text-sm font-bold text-focus-navy">
-                  Personal Information
-                </h2>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            
+            {/* Section 1: Personal & Academic (3 Fields per Row) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100"
+            >
+              <div className="flex items-center gap-3 mb-8 border-b border-gray-50 pb-4">
+                <User size={20} className="text-focus-yellow" />
+                <h2 className="font-bold text-focus-navy uppercase tracking-wider text-sm">Personal & Academic Profile</h2>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-
-                <input name="fullName" placeholder="Full Name *" required value={formData.fullName} onChange={handleInputChange} className="input" />
-
-                <select name="gender" required value={formData.gender} onChange={handleInputChange} className="input">
-                  <option value="">Gender *</option>
-                  {genders.map((g) => <option key={g}>{g}</option>)}
-                </select>
-
-                <input name="phone" placeholder="Phone *" required value={formData.phone} onChange={handleInputChange} className="input" />
-
-                <input name="email" placeholder="Email *" required value={formData.email} onChange={handleInputChange} className="input" />
-
-                <input name="university" placeholder="University" value={formData.university} onChange={handleInputChange} className="input" />
-
-                <div className="flex gap-2">
-                  <input name="batchFrom" placeholder="Batch From" value={formData.batchFrom} onChange={handleInputChange} className="input w-1/2" />
-                  <input name="batchTo" placeholder="Batch To" value={formData.batchTo} onChange={handleInputChange} className="input w-1/2" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-5">
+                <div className="md:col-span-2">
+                  <label className={labelClass}>Full Name *</label>
+                  <input name="fullName" required value={formData.fullName} onChange={handleInputChange} className={inputClass} placeholder="John Doe" />
+                </div>
+                <div>
+                  <label className={labelClass}>Gender *</label>
+                  <select name="gender" required value={formData.gender} onChange={handleInputChange} className={inputClass}>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 </div>
 
-                <input name="occupation" placeholder="Occupation" value={formData.occupation} onChange={handleInputChange} className="input" />
+                <div>
+                  <label className={labelClass}>Phone *</label>
+                  <input name="phone" required value={formData.phone} onChange={handleInputChange} className={inputClass} placeholder="+251..." />
+                </div>
+                <div>
+                  <label className={labelClass}>Email *</label>
+                  <input name="email" type="email" required value={formData.email} onChange={handleInputChange} className={inputClass} placeholder="email@example.com" />
+                </div>
+                <div>
+                  <label className={labelClass}>University</label>
+                  <input name="university" value={formData.university} onChange={handleInputChange} className={inputClass} />
+                </div>
 
-                <input name="organization" placeholder="Organization" value={formData.organization} onChange={handleInputChange} className="input" />
+                <div>
+                  <label className={labelClass}>Batch From</label>
+                  <input name="batchFrom" value={formData.batchFrom} onChange={handleInputChange} className={inputClass} placeholder="Year" />
+                </div>
+                <div>
+                  <label className={labelClass}>Batch To</label>
+                  <input name="batchTo" value={formData.batchTo} onChange={handleInputChange} className={inputClass} placeholder="Year" />
+                </div>
+                <div>
+                  <label className={labelClass}>Local Church</label>
+                  <input name="localChurch" value={formData.localChurch} onChange={handleInputChange} className={inputClass} />
+                </div>
 
-                <input name="localChurch" placeholder="Local Church" value={formData.localChurch} onChange={handleInputChange} className="input" />
-
+                <div>
+                  <label className={labelClass}>Occupation</label>
+                  <input name="occupation" value={formData.occupation} onChange={handleInputChange} className={inputClass} />
+                </div>
+                <div className="md:col-span-2">
+                  <label className={labelClass}>Organization / Institution</label>
+                  <input name="organization" value={formData.organization} onChange={handleInputChange} className={inputClass} />
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* SERVICE TYPE */}
-            <div className="mb-12">
-              <h2 className="font-bold text-focus-navy mb-4">
-                Type of Service in Ministry
-              </h2>
-
-              {['General Leader', 'Team Leader', 'Member', 'Partner'].map((type) => (
-                <label key={type} className="flex gap-2 mb-2">
-                  <input type="radio" name="serviceType" value={type} onChange={handleInputChange} />
-                  {type}
-                </label>
-              ))}
-            </div>
-
-            {/* MEMBERSHIP */}
-            <div className="mb-12">
-              <label className="flex gap-3">
-                <input type="checkbox" name="membershipFee" checked={formData.membershipFee} onChange={handleInputChange} />
-                <span>
-                  I commit to contribute 2000 ETB yearly to support the ministry *
-                </span>
-              </label>
-            </div>
-
-            {/* PAYMENT */}
-            <div className="mb-12">
-              <h2 className="font-bold text-focus-navy mb-4">
-                Preferred Payment Method
-              </h2>
-
-              {['Bank Transfer', 'Mobile Transfer', 'Cash', 'Other'].map((m) => (
-                <label key={m} className="flex gap-2 mb-2">
-                  <input type="radio" name="paymentMethod" value={m} onChange={handleInputChange} />
-                  {m}
-                </label>
-              ))}
-
-              {formData.paymentMethod === 'Other' && (
-                <input
-                  name="otherPayment"
-                  placeholder="Specify other method"
-                  value={formData.otherPayment}
-                  onChange={handleInputChange}
-                  className="input mt-3"
-                />
-              )}
-            </div>
-
-            {/* DECLARATION */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-4">
-                <FileText />
-                <h2 className="font-bold text-focus-navy">Declaration</h2>
-              </div>
-
-              <p className="text-sm mb-4">
-                I affirm my membership in the FOCUS FAMILY and commit to support
-                the mission through contribution, prayer, and participation.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-4">
-                <input name="declarationName" placeholder="Name" value={formData.declarationName} onChange={handleInputChange} className="input" />
-                <input name="declarationSignature" placeholder="Signature" value={formData.declarationSignature} onChange={handleInputChange} className="input" />
-                <input type="date" name="declarationDate" value={formData.declarationDate} onChange={handleInputChange} className="input" />
-              </div>
-            </div>
-
-            {/* SUBMIT */}
-            <button
-              type="submit"
-              disabled={!isFormValid || isLoading}
-              className={`w-full ${donateButtonClass} disabled:opacity-60 disabled:cursor-not-allowed`}
+            {/* Section 2: Commitment & Payment */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100"
             >
-              {isLoading ? 'Processing...' : 'Submit'}
-            </button>
+              <div className="flex items-center gap-3 mb-8 border-b border-gray-50 pb-4">
+                <Landmark size={20} className="text-focus-yellow" />
+                <h2 className="font-bold text-focus-navy uppercase tracking-wider text-sm">Ministry & Fees</h2>
+              </div>
 
+              <div className="space-y-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {['General Leader', 'Team Leader', 'Member', 'Partner'].map((type) => (
+                    <label key={type} className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 cursor-pointer transition-all ${formData.serviceType === type ? 'border-focus-yellow bg-focus-yellow/5' : 'border-gray-50 bg-gray-50'}`}>
+                      <input type="radio" name="serviceType" value={type} className="sr-only" onChange={handleInputChange} />
+                      <span className="text-[10px] font-bold uppercase tracking-tighter text-focus-navy">{type}</span>
+                    </label>
+                  ))}
+                </div>
+
+                <div className="p-5 rounded-2xl bg-focus-navy text-white text-sm">
+                  <label className="flex items-center gap-4 cursor-pointer">
+                    <input type="checkbox" name="membershipFee" checked={formData.membershipFee} onChange={handleInputChange} className="w-5 h-5 rounded text-focus-yellow" />
+                    <span>I commit to contribute <b className="text-focus-yellow">2000 ETB yearly</b> for ministry sustainability.</span>
+                  </label>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {['Bank Transfer', 'Mobile', 'Cash', 'Other'].map((method) => (
+                    <label key={method} className={`flex items-center justify-center p-3 rounded-xl border-2 cursor-pointer transition-all ${formData.paymentMethod === method ? 'border-focus-navy bg-focus-navy text-white' : 'border-gray-50 bg-gray-50 text-gray-400'}`}>
+                      <input type="radio" name="paymentMethod" value={method} className="sr-only" onChange={handleInputChange} />
+                      <span className="text-[10px] font-bold uppercase">{method}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Section 3: Declaration */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <PenTool size={18} className="text-focus-yellow" />
+                <h2 className="font-bold text-focus-navy text-sm uppercase tracking-wider">Declaration</h2>
+              </div>
+              <p className="text-[12px] text-gray-400 mb-6 italic leading-relaxed">
+                "I affirm my membership in the FOCUS FAMILY and commit to stand alongside the ministry by contributing, praying, and participating faithfully for the advancement the mission."
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label className={labelClass}>Print Name</label>
+                  <input name="declarationName" value={formData.declarationName} onChange={handleInputChange} className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Digital Signature</label>
+                  <input name="declarationSignature" placeholder="Type Name" value={formData.declarationSignature} onChange={handleInputChange} className={`${inputClass} italic font-serif`} />
+                </div>
+                <div>
+                  <label className={labelClass}>Date</label>
+                  <input type="date" name="declarationDate" value={formData.declarationDate} onChange={handleInputChange} className={inputClass} />
+                </div>
+              </div>
+            </motion.div>
+
+            <Button
+              type="submit"
+              disabled={isLoading || !formData.fullName || !formData.membershipFee}
+              className="w-full h-16 rounded-2xl bg-focus-yellow text-black font-black uppercase tracking-widest hover:scale-[1.01] transition-transform shadow-lg shadow-focus-yellow/20"
+            >
+              {isLoading ? 'Processing...' : 'Complete Subscription'}
+            </Button>
           </form>
         </div>
-      </section>
-
+      </main>
       <Footer />
-
-      {isSubmitted && (
-        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-focus-navy text-white px-6 py-3 rounded-xl">
-          Success! Submitted.
-        </div>
-      )}
     </div>
   )
 }
