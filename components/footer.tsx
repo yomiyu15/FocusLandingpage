@@ -49,27 +49,7 @@ export function Footer() {
                   FOCUS Fellowship
                 </Link>
               </li>
-              <li>
-                <Link href="/resources" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <Link href="/ministries" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Ministries
-                </Link>
-              </li>
-              <li>
-                <Link href="/events" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link href="/news" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  News
-                </Link>
-              </li>
-              <li>
+             <li>
                 <Link href="/contact" className="text-gray-300 hover:text-focus-yellow transition-colors">
                   Contact
                 </Link>

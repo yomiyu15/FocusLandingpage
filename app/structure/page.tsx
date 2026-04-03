@@ -1,197 +1,156 @@
-import Image from 'next/image'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+"use client";
+
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { LayoutGrid, Activity, MapPin, Sparkles } from "lucide-react";
 
 export default function StructurePage() {
   const statusItems = [
     {
-      title: 'Legal / Institutional Status',
-      description:
-        'FOCUS operates as a recognized and functioning campus ministry, collaborating with students and stakeholders to advance its mission.',
+      title: "Legal Status",
+      desc: "Recognized and functioning campus ministry, collaborating with stakeholders.",
+      icon: Activity,
     },
     {
-      title: 'Operational Status',
-      description:
-        'The ministry is fully active and operational, engaging over 30,000 student members annually through fellowships, evangelistic outreach, discipleship, leadership development, Girls Ministry, and community initiatives.',
+      title: "Operational Status",
+      desc: "Over 30,000 members across Ethiopia engaging in fellowships and evangelism.",
+      icon: MapPin,
     },
     {
-      title: 'Structural Capacity',
-      description:
-        'FOCUS is structured into 88 fellowships, 11 clusters, and 7 functional departments for efficient coordination and leadership flow.',
+      title: "Structural Capacity",
+      desc: "Structured into 88 fellowships, 11 clusters, and 7 functional departments.",
+      icon: LayoutGrid,
     },
-    {
-      title: 'Programmatic Status',
-      description:
-        'Core ministry pillars are actively implemented with measurable impact in evangelism, girls ministry, leadership development, spiritual nurturing, and social service.',
-    },
-    {
-      title: 'Growth & Development Stage',
-      description:
-        'FOCUS is in a strategic expansion phase, scaling membership and outreach while strengthening leadership pipelines and long-term sustainability systems.',
-    },
-  ]
+  ];
 
   const hierarchy = [
-    'General Assembly (Supreme Authority)',
-    'Board of Directorates (Policy & Governance)',
-    'National Office (Execution & Management)',
-    'Cluster Council (Regional Coordination Layer)',
-    'Cluster Coordinator (Operational Leadership)',
-    'Fellowship Leaders (Campus Oversight)',
-    'Team Leaders (Small Group Leaders)',
-    'Members (Foundation Base)',
-  ]
+    { level: "General Assembly", role: "Supreme Authority" },
+    { level: "Board of Directorates", role: "Policy & Governance" },
+    { level: "National Office", role: "Execution & Management" },
+    { level: "Cluster Council", role: "Regional Coordination" },
+    { level: "Cluster Coordinator", role: "Operational Leadership" },
+    { level: "Fellowship Leaders", role: "Campus Oversight" },
+    { level: "Team Leaders", role: "Small Group Leaders" },
+    { level: "Members", role: "Foundation Base" },
+  ];
+
+  const pillars = [
+    "Evangelism",
+    "Girls Ministry",
+    "Leadership Development",
+    "Spiritual Nurturing",
+    "Social Service",
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <section className="py-10 px-4 sm:px-6 lg:px-8 flex-1">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
-          <article className="rounded-2xl border border-gray-100 bg-focus-light p-8 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-80 h-80 bg-focus-yellow/15 blur-[110px] -translate-x-20 -translate-y-20 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-focus-blue/15 blur-[120px] translate-x-24 translate-y-24 pointer-events-none" />
-
-            <h1 className="text-3xl md:text-4xl font-black text-focus-navy mb-4 relative z-10">
-              FOCUS Structure & Status
+      <main className="flex-1 py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Page Header */}
+          <div className="mb-10">
+            <div className="flex items-center gap-2 mb-2">
+              <Sparkles size={16} className="text-focus-yellow" />
+              <span className="text-xs font-bold tracking-widest text-focus-navy/60 uppercase">
+                Ministry Blueprint
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-focus-navy">
+              Structure of FOCUS
             </h1>
+          </div>
 
-            <div className="relative z-10 mb-6 rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
-                alt="Organizational impact"
-                width={1200}
-                height={600}
-                className="w-full h-[190px] object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-focus-navy/60 via-focus-yellow/10 to-transparent" />
-              <div className="absolute left-5 bottom-5 right-5">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border border-white/60 px-4 py-2 shadow-sm">
-                  <span className="text-xs font-bold tracking-widest text-focus-navy uppercase">
-                    Active • Expanding • Impact-driven
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <h2 className="text-2xl font-bold text-focus-navy mb-3 relative z-10">
-              Organizational Status
-            </h2>
-            <p className="text-gray-600 relative z-10 mb-6 max-w-xl">
-              How FOCUS is structured and operating right now—legally, operationally, structurally, programmatically, and in its current growth stage.
-            </p>
-
-            <div className="relative z-10 space-y-4">
-              {statusItems.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className="group relative rounded-2xl bg-white/80 backdrop-blur border border-gray-100 p-5 shadow-sm hover:shadow-xl transition-shadow"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-focus-yellow/15 via-transparent to-focus-blue/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
-                  <div className="relative flex items-start gap-4">
-                    <div className="min-w-[40px] h-10 rounded-xl bg-focus-yellow/15 border border-focus-yellow/30 flex items-center justify-center">
-                      <span className="text-sm font-black text-focus-navy">
-                        {idx + 1}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-focus-navy">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 mt-2 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="rounded-2xl bg-white border border-gray-100 p-4 mt-5">
-              <h3 className="text-lg font-bold text-focus-navy mb-3">
-                Core Ministry Pillars
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  'Evangelism (large-scale outreach)',
-                  'Girls Ministry (focused empowerment)',
-                  'Leadership Development (capacity building)',
-                  'Spiritual Nurturing (discipleship and building body of Christ)',
-                  'Social Service & Community Development (practical engagement)',
-                ].map((pill) => (
-                  <div
-                    key={pill}
-                    className="px-3 py-2 rounded-full bg-focus-light border border-gray-100 text-gray-700 text-sm"
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Status Grid */}
+            <div className="lg:col-span-7 space-y-8">
+              <div className="grid sm:grid-cols-2 gap-5">
+                {statusItems.map((item) => (
+                  <article
+                    key={item.title}
+                    className="p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-md transition-shadow"
                   >
-                    {pill}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </article>
-
-          <article className="rounded-2xl border border-gray-100 bg-white p-7">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-focus-navy">
-                Leadership & Hierarchy Flow
-              </h2>
-              <p className="text-gray-600 mt-2">
-                The governance and execution flow that connects the Supreme Authority to campus oversight and members.
-              </p>
-            </div>
-
-            <ol className="space-y-3">
-              {hierarchy.map((level, idx) => (
-                <li key={level} className="flex items-start gap-3">
-                  <div className="mt-0.5 w-9 h-9 rounded-2xl bg-focus-yellow/15 border border-focus-yellow/30 flex items-center justify-center shrink-0">
-                    <span className="text-sm font-black text-focus-navy">
-                      {idx + 1}
-                    </span>
-                  </div>
-                  <div className="pt-0.5">
-                    <p className="text-gray-700">
-                      <span className="font-bold text-focus-navy">
-                        Step:
-                      </span>{' '}
-                      {level}
+                    <div className="inline-flex p-2 rounded-lg bg-focus-yellow/20 text-focus-blue mb-4">
+                      <item.icon size={20} />
+                    </div>
+                    <h3 className="text-lg font-bold text-focus-navy mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.desc}
                     </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-
-            <div className="mt-10 rounded-2xl bg-focus-light border border-gray-100 p-5">
-              <h3 className="text-xl font-bold text-focus-navy mb-4">
-                Donation Accounts
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { label: 'CBE', value: '1000360547168' },
-                  { label: 'Awash', value: '013521704779401' },
-                  { label: 'CBO', value: '1010400265428' },
-                  { label: 'OB', value: '1100330900002' },
-                ].map((acc) => (
-                  <div
-                    key={acc.label}
-                    className="flex items-center justify-between gap-4 rounded-xl bg-white border border-gray-100 px-4 py-3"
-                  >
-                    <span className="font-semibold text-focus-navy">
-                      {acc.label}:
-                    </span>
-                    <span className="font-mono text-gray-700 text-sm break-all">
-                      {acc.value}
-                    </span>
-                  </div>
+                  </article>
                 ))}
+
+                {/* Growth Stage Card */}
+                <article className="sm:col-span-2 p-8 rounded-2xl bg-focus-navy text-white">
+                  <h3 className="text-xl font-bold mb-3">Growth Stage</h3>
+                  <p className="text-sm text-white/80 leading-relaxed">
+                    Strategic expansion phase, scaling outreach while
+                    strengthening leadership pipelines and long-term
+                    sustainability across the nation.
+                  </p>
+                </article>
+              </div>
+
+              {/* Pillars Section */}
+              <div className="p-8 rounded-2xl border border-gray-100 bg-focus-light">
+                <h3 className="text-xl font-bold text-focus-navy mb-6">
+                  Programmatic Implementation
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {pillars.map((pill) => (
+                    <span
+                      key={pill}
+                      className="px-4 py-2 rounded-xl bg-white text-sm font-semibold text-focus-navy border border-gray-100 shadow-sm"
+                    >
+                      {pill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </article>
+
+            {/* Right Column: Hierarchy Flow */}
+            <div className="lg:col-span-5">
+              <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
+                <h2 className="text-2xl font-bold text-focus-navy mb-2">
+                  Governance Flow
+                </h2>
+                <p className="text-sm text-gray-500 mb-8">
+                  Leadership execution from authority to campus level.
+                </p>
+
+                <div className="space-y-6 relative">
+                  {/* Vertical Connecting Line */}
+                  <div className="absolute left-[15px] top-2 bottom-2 w-[2px] bg-gray-100" />
+
+                  {hierarchy.map((item) => (
+                    <div
+                      key={item.level}
+                      className="relative flex items-start gap-4"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-focus-yellow flex items-center justify-center shrink-0 z-10 border-4 border-white shadow-sm">
+                        <div className="w-2 h-2 rounded-full bg-focus-navy" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-focus-navy">
+                          {item.level}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-wider text-gray-500 font-medium">
+                          {item.role}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </main>
 
       <Footer />
     </div>
-  )
+  );
 }

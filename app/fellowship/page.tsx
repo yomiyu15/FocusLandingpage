@@ -1,46 +1,33 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { getPillars } from '@/lib/api/content'
+import { donateButtonClass } from '@/lib/ui'
 
 type Pillar = {
   title: string
   body: string
 }
 
-const pillars: Pillar[] = [
-  {
-    title: 'Evangelism',
-    body: 'Large-scale outreach',
-  },
-  {
-    title: 'Girls Ministry',
-    body: 'Focused empowerment',
-  },
-  {
-    title: 'Leadership Development',
-    body: 'Capacity building',
-  },
-  {
-    title: 'Spiritual Nurturing',
-    body: 'Discipleship and building body of christ',
-  },
-  {
-    title: 'Social Service & Community Development',
-    body: 'Practical engagement',
-  },
-]
-
 export default function FellowshipOverviewPage() {
+  const [pillars, setPillars] = useState<Pillar[]>([])
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
+
+  useEffect(() => {
+    getPillars().then((data) => {
+      setPillars(data)
+      if (data.length > 0) setOpenIndex(0)
+    })
+  }, [])
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -128,7 +115,7 @@ export default function FellowshipOverviewPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/donate"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold bg-focus-yellow text-black hover:bg-focus-navy hover:text-white transition gap-2"
+                  className={donateButtonClass}
                 >
                   Donate <ArrowRight size={18} />
                 </Link>

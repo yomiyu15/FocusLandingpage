@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { CheckCircle, Send, User, FileText, Landmark } from 'lucide-react'
+import { submitPartnerApplication } from '@/lib/api/content'
+import { donateButtonClass } from '@/lib/ui'
 
 export default function FocusFamilyForm() {
   const [formData, setFormData] = useState({
@@ -34,7 +36,8 @@ export default function FocusFamilyForm() {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value, type, checked } = e.target
+    const { name, value, type } = e.target
+    const checked = (e.target as HTMLInputElement).checked
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -44,12 +47,13 @@ export default function FocusFamilyForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-
-    setTimeout(() => {
+    try {
+      await submitPartnerApplication(formData)
       setIsSubmitted(true)
-      setIsLoading(false)
       setTimeout(() => setIsSubmitted(false), 5000)
-    }, 1500)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const isFormValid =
@@ -65,7 +69,7 @@ export default function FocusFamilyForm() {
     <div className="min-h-screen flex flex-col bg-slate-50/40">
       <Header />
 
-      <section className="pt-10 pb-16 px-4 flex-1">
+      <section className="pt-10 pb-16 px-4 sm:px-6 lg:px-8 flex-1">
         <div className="max-w-6xl mx-auto">
 
           <h1 className="text-3xl md:text-4xl font-bold text-center text-focus-navy mb-8">
@@ -81,7 +85,7 @@ export default function FocusFamilyForm() {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <User />
-                <h2 className="text-sm font-bold text-[#001E6B]">
+                <h2 className="text-sm font-bold text-focus-navy">
                   Personal Information
                 </h2>
               </div>
@@ -117,7 +121,7 @@ export default function FocusFamilyForm() {
 
             {/* SERVICE TYPE */}
             <div className="mb-12">
-              <h2 className="font-bold text-[#001E6B] mb-4">
+              <h2 className="font-bold text-focus-navy mb-4">
                 Type of Service in Ministry
               </h2>
 
@@ -141,7 +145,7 @@ export default function FocusFamilyForm() {
 
             {/* PAYMENT */}
             <div className="mb-12">
-              <h2 className="font-bold text-[#001E6B] mb-4">
+              <h2 className="font-bold text-focus-navy mb-4">
                 Preferred Payment Method
               </h2>
 
@@ -167,7 +171,7 @@ export default function FocusFamilyForm() {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <FileText />
-                <h2 className="font-bold text-[#001E6B]">Declaration</h2>
+                <h2 className="font-bold text-focus-navy">Declaration</h2>
               </div>
 
               <p className="text-sm mb-4">
@@ -186,7 +190,7 @@ export default function FocusFamilyForm() {
             <button
               type="submit"
               disabled={!isFormValid || isLoading}
-              className="w-full py-4 bg-yellow-400 font-bold rounded-full"
+              className={`w-full ${donateButtonClass} disabled:opacity-60 disabled:cursor-not-allowed`}
             >
               {isLoading ? 'Processing...' : 'Submit'}
             </button>
@@ -198,7 +202,7 @@ export default function FocusFamilyForm() {
       <Footer />
 
       {isSubmitted && (
-        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-[#001E6B] text-white px-6 py-3 rounded-xl">
+        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-focus-navy text-white px-6 py-3 rounded-xl">
           Success! Submitted.
         </div>
       )}

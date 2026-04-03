@@ -62,7 +62,7 @@ export default function DonatePage() {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-focus-yellow/30 text-focus-navy">
       <Header />
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 pt-10 pb-16 md:pb-16">
+      <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:pb-16">
         {/* hero section */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-black tracking-tight text-focus-navy">
