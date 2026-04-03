@@ -97,22 +97,26 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Divider & Copyright */}
-        <div className="border-t border-white/10 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-            <p className="text-center md:text-left">
-              &copy; {currentYear} FOCUS - Fellowship of Oromo Christian University Students.
-            </p>
-            <div className="flex gap-6">
-              <Link href="/privacy-policy" className="hover:text-focus-yellow transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-focus-yellow transition-colors">
-                Terms
-              </Link>
-            </div>
-          </div>
-        </div>
+       
+        <div className="border-t border-gray-200 pt-6">
+ <div className="border-t border-white/20 pt-6">
+  <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-bold uppercase tracking-widest text-white/80">
+    <p className="text-white/70 text-center md:text-left">
+  &copy; {currentYear} FOCUS - Fellowship of Oromo Christian University Students.
+</p>
+
+    <div className="flex gap-6">
+      <Link href="/privacy-policy" className="hover:text-focus-yellow transition-colors">
+        Privacy Policy
+      </Link>
+      <Link href="/terms" className="hover:text-focus-yellow transition-colors">
+        Terms
+      </Link>
+    </div>
+
+  </div>
+</div>
+</div>
       </div>
     </footer>
   );
