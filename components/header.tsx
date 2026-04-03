@@ -53,7 +53,7 @@ export function Header() {
     },
     {
     
-  label: 'Ministry Pillars',
+  label: 'Focus Ministry Pillars',
   isMega: true,
   submenu: [
     {
@@ -108,8 +108,8 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
           scrolled 
-            ? "bg-white/90 backdrop-blur-xl border-b border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.08)]" 
-            : "bg-white/80 backdrop-blur-xl border-b border-transparent"
+            ? "bg-white/85 backdrop-blur-xl border-b border-gray-100 shadow-[0_14px_40px_rgba(0,0,0,0.10)]"
+            : "bg-white/75 backdrop-blur-xl border-b border-gray-100 shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,7 +117,7 @@ export function Header() {
             {/* Logo Section */}
             <Link 
               href="/" 
-              className="flex items-center gap-3 group relative z-[110] min-w-0 transition-transform hover:scale-[1.02]"
+              className="flex items-center gap-2.5 group relative z-[110] min-w-0 transition-transform hover:scale-[1.02]"
             >
               <div className="relative w-10 h-10 lg:w-12 lg:h-12">
                 <Image
@@ -128,18 +128,18 @@ export function Header() {
                   priority
                 />
               </div>
-              <div className="flex flex-col min-w-0">
-                <span className="font-black text-xl lg:text-2xl leading-none text-focus-yellow">
+              <div className="flex flex-col min-w-0 justify-center">
+                <span className="font-black text-xl lg:text-2xl leading-[1] text-focus-yellow tracking-[-0.02em]">
                   FOCUS
                 </span>
-                <span className="hidden sm:block text-[10px] lg:text-xs font-semibold text-focus-navy leading-tight max-w-[280px] lg:max-w-[320px]">
+                <span className="hidden sm:block text-[10px] lg:text-xs font-semibold text-focus-navy/90 leading-tight max-w-[280px] lg:max-w-[320px]">
                   Fellowship of Oromo Christian University Students
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 rounded-2xl border border-gray-100/80 bg-white/70 p-1.5 shadow-sm">
+            <nav className="hidden lg:flex items-center gap-1 p-0">
               {navLinks.map((link) => (
                 <div 
                   key={link.label} 
@@ -152,8 +152,8 @@ export function Header() {
                       <button 
                         className={cn(
                           "flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200",
-                          "text-gray-700 hover:text-focus-blue hover:bg-focus-light/30",
-                          activeDropdown === link.label && "text-focus-blue bg-focus-light/30"
+                          "text-gray-700 hover:text-focus-blue hover:bg-focus-light/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]",
+                          activeDropdown === link.label && "text-focus-blue bg-focus-light/30 ring-1 ring-focus-blue/10"
                         )}
                       >
                         {link.label}
@@ -173,10 +173,12 @@ export function Header() {
                           activeDropdown === link.label && "opacity-100 visible translate-y-0"
                         )}
                       >
-                        <div className={cn(
-                          "bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden",
-                          link.isMega ? "w-[560px]" : "w-72"
-                        )}>
+                        <div
+                          className={cn(
+                            "bg-white/95 border border-gray-100 shadow-2xl rounded-2xl overflow-hidden backdrop-blur-md ring-1 ring-focus-blue/10",
+                            link.isMega ? "w-[560px]" : "w-72"
+                          )}
+                        >
                           <div className={cn(
                             "p-2",
                             link.isMega ? "grid grid-cols-2 gap-1" : "flex flex-col"
@@ -197,7 +199,10 @@ export function Header() {
                                     </span>
                                   )}
                                 </div>
-                                <ArrowRight size={14} className="opacity-0 group-hover/item:opacity-100 transition-all -translate-x-1 group-hover/item:translate-x-0 text-focus-blue" />
+                                <ArrowRight
+                                  size={14}
+                                  className="opacity-0 group-hover/item:opacity-100 transition-all -translate-x-1 group-hover/item:translate-x-0 text-focus-blue"
+                                />
                               </Link>
                             ))}
                           </div>
@@ -210,7 +215,7 @@ export function Header() {
                       className={cn(
                         "px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200",
                         pathname === link.href
-                          ? "text-focus-blue bg-focus-light/60 ring-1 ring-focus-blue/10"
+                          ? "text-focus-blue"
                           : "text-gray-700 hover:text-focus-blue hover:bg-focus-light/30"
                       )}
                     >
@@ -241,7 +246,7 @@ export function Header() {
               </div>
               <Button 
                 asChild 
-                className="group relative overflow-hidden bg-focus-yellow hover:bg-focus-yellow/90 text-focus-navy font-bold rounded-xl px-6 py-2.5 shadow-md hover:shadow-lg transition-all duration-300"
+                className="group relative overflow-hidden bg-focus-yellow hover:bg-focus-yellow/90 text-focus-navy font-bold rounded-xl px-6 py-2.5 shadow-[0_12px_30px_rgba(255,221,0,0.35)] ring-1 ring-focus-yellow/50 hover:shadow-[0_16px_40px_rgba(255,221,0,0.45)] transition-all duration-300"
               >
                 <Link href="/donate" className="flex items-center gap-2">
                   <span>Donate</span>
@@ -303,7 +308,7 @@ export function Header() {
                       className={cn(
                         "block py-3 text-base font-bold transition-colors",
                         pathname === link.href
-                          ? "text-focus-blue"
+                          ? "text-focus-yellow"
                           : "text-gray-900 hover:text-focus-blue"
                       )}
                     >
@@ -335,7 +340,7 @@ export function Header() {
               <div className="pt-4">
                 <Button 
                   asChild 
-                  className="w-full bg-focus-yellow hover:bg-focus-yellow/90 text-focus-navy font-bold h-12 rounded-xl text-base shadow-md"
+                  className="w-full bg-focus-yellow hover:bg-focus-yellow/90 text-focus-navy font-bold h-12 rounded-xl text-base shadow-[0_12px_30px_rgba(255,221,0,0.35)] ring-1 ring-focus-yellow/50"
                 >
                   <Link href="/donate" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2">
                     Donate Now

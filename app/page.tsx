@@ -20,6 +20,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { FocusPillarsSection } from "@/components/home/FocusPillarsSection";
 
 const slides = [
   {
@@ -94,111 +95,111 @@ export default function Home() {
       <Header />
 
       {/* HERO SECTION */}
-      <section className="relative h-[90vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-focus-light">
-        <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={currentSlide}
-              className="absolute inset-0"
-              initial={{ opacity: 0, scale: 1.03 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.99 }}
-              transition={{ duration: 1.1, ease: "easeInOut" }}
+    <section className="relative h-[90vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-focus-light">
+  {/* Background slides */}
+  <div className="absolute inset-0 z-0">
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={currentSlide}
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 1.03 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.99 }}
+        transition={{ duration: 1.1, ease: "easeInOut" }}
+      >
+        <Image
+          src={slides[currentSlide].image}
+          alt={`Slide ${currentSlide}`}
+          fill
+          priority
+          className="object-cover w-full h-full"
+        />
+        {/* Darkened overlay for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-focus-navy/30 via-focus-yellow/20 to-white/80 backdrop-blur-[2px]" />
+      </motion.div>
+    </AnimatePresence>
+  </div>
+
+  {/* Floating shapes */}
+  <div className="absolute top-10 left-[-4rem] w-96 h-96 bg-focus-yellow/10 blur-[120px] animate-slow-spin rounded-full" />
+  <div className="absolute bottom-20 right-[-6rem] w-80 h-80 bg-focus-blue/10 blur-[100px] animate-spin-slow rounded-full" />
+
+  {/* Content */}
+  <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
+    <div className="max-w-4xl">
+      <div className="text-center lg:text-left">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -18 }}
+            transition={{ duration: 0.65 }}
+            className="space-y-6"
+          >
+            <Badge className="bg-white/85 text-focus-navy border-gray-200 backdrop-blur-md py-1.5 px-4">
+              <Sparkles size={12} className="mr-2 text-focus-yellow" /> Since 1998
+            </Badge>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-focus-navy leading-tight tracking-tight">
+              FOCUS
+              <span className="block text-focus-yellow mt-2">
+                {slides[currentSlide].title}
+              </span>
+            </h1>
+
+            {/* Subtitle paragraph - now visible */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="text-lg sm:text-xl text-white/90 font-semibold max-w-2xl leading-relaxed drop-shadow-sm"
             >
-              <Image
-                src={slides[currentSlide].image}
-                alt={`Slide ${currentSlide}`}
-                fill
-                priority
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-focus-navy/10 via-focus-yellow/10 to-white/90 backdrop-blur-[2px]" />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+              {slides[currentSlide].subtitle || "Subtitle not loaded"}
+            </motion.p>
 
-        {/* Floating shapes */}
-        <div className="absolute top-10 left-[-4rem] w-96 h-96 bg-focus-yellow/10 blur-[120px] animate-slow-spin rounded-full" />
-        <div className="absolute bottom-20 right-[-6rem] w-80 h-80 bg-focus-blue/10 blur-[100px] animate-spin-slow rounded-full" />
+            <div className="flex justify-center lg:justify-start gap-4 pt-4 flex-wrap">
+              <Button
+                asChild
+                className="bg-focus-yellow text-focus-navy font-bold px-8 h-12 rounded-xl hover:bg-focus-yellow/90 hover:scale-[1.02] transition"
+              >
+                <Link href="/donate" className="flex items-center gap-2">
+                  Donate <ArrowRight size={18} />
+                </Link>
+              </Button>
 
-        {/* Content */}
-        <div className="relative z-10 w-full px-6 max-w-7xl mx-auto">
-          <div className="max-w-4xl">
-            <div className="text-center lg:text-left">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -18 }}
-                  transition={{ duration: 0.65 }}
-                  className="space-y-6"
-                >
-                  <Badge className="bg-white/85 text-focus-navy border-gray-200 backdrop-blur-md py-1.5 px-4">
-                    <Sparkles size={12} className="mr-2 text-focus-yellow" />{" "}
-                    Since 1998
-                  </Badge>
-
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-focus-navy leading-tight tracking-tight">
-                    FOCUS
-                    <span className="block text-focus-yellow mt-2">
-                      {slides[currentSlide].title}
-                    </span>
-                  </h1>
-
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 1 }}
-                    className="text-lg sm:text-xl text-gray-700 max-w-2xl leading-relaxed"
-                  >
-                    {slides[currentSlide].subtitle}
-                  </motion.p>
-
-                  <div className="flex justify-center lg:justify-start gap-4 pt-4 flex-wrap">
-                    <Button
-                      asChild
-                      className="bg-focus-yellow text-focus-navy font-bold px-8 h-12 rounded-xl hover:bg-focus-yellow/90 hover:scale-[1.02] transition"
-                    >
-                      <Link href="/donate" className="flex items-center gap-2">
-                        Donate <ArrowRight size={18} />
-                      </Link>
-                    </Button>
-
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="border-focus-blue/30 text-focus-navy bg-white/70 hover:bg-white hover:text-focus-navy px-8 h-12 rounded-xl"
-                    >
-                      <Link href="/partner">Partner</Link>
-                    </Button>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-3">
-                    {[
-                      { value: "88", label: "Fellowships" },
-                      { value: "30,000+", label: "Students/Year" },
-                      { value: "11", label: "Clusters" },
-                    ].map((stat) => (
-                      <div
-                        key={stat.label}
-                        className="rounded-xl bg-white/80 border border-white/70 px-3 py-3 text-center backdrop-blur-sm"
-                      >
-                        <p className="text-focus-blue font-black text-lg">
-                          {stat.value}
-                        </p>
-                        <p className="text-[11px] text-gray-600 font-semibold">
-                          {stat.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+              <Button
+                asChild
+                variant="outline"
+                className="border-focus-blue/30 text-focus-navy bg-white/70 hover:bg-white hover:text-focus-navy px-8 h-12 rounded-xl"
+              >
+                <Link href="/partner">Partner</Link>
+              </Button>
             </div>
-          </div>
-        </div>
-      </section>
+
+            <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-3">
+              {[
+                { value: "88", label: "Fellowships" },
+                { value: "30,000+", label: "Students/Year" },
+                { value: "11", label: "Clusters" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl bg-white/80 border border-white/70 px-3 py-3 text-center backdrop-blur-sm"
+                >
+                  <p className="text-focus-blue font-black text-lg">{stat.value}</p>
+                  <p className="text-[11px] text-gray-600 font-semibold">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <FocusPillarsSection />
 
       {/* WHO WE ARE SECTION */}
       <section className="py-24 px-6 bg-white relative overflow-hidden">

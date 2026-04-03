@@ -48,25 +48,7 @@ export default function EventsPage() {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-focus-navy mb-5">Event Registration</h2>
-            <form className="rounded-xl border border-gray-100 bg-white p-6 space-y-4">
-              <input type="text" placeholder="Full name" className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-focus-blue" />
-              <input type="email" placeholder="Email address" className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-focus-blue" />
-              <select className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-focus-blue bg-white">
-                <option value="">Select event</option>
-                {upcomingEvents.map((event) => (
-                  <option key={event.title} value={event.title}>
-                    {event.title}
-                  </option>
-                ))}
-              </select>
-              <textarea rows={4} placeholder="Notes (optional)" className="w-full rounded-lg border border-gray-300 px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-focus-blue" />
-              <button type="button" className="w-full rounded-lg bg-focus-yellow text-focus-navy font-bold py-3 hover:bg-focus-yellow/90 transition-colors">
-                Register
-              </button>
-            </form>
-          </div>
+          {/* Registration section intentionally removed as requested */}
         </div>
 
         <div className="max-w-6xl mx-auto mt-12">

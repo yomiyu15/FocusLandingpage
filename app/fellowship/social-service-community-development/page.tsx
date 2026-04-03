@@ -1,25 +1,23 @@
-import { Globe, Users } from 'lucide-react'
-
-import { FellowshipPage } from '@/components/fellowship/FellowshipPage'
+import { PillarPage } from '@/components/fellowship/PillarPage'
 
 export default function FellowshipSocialServicePage() {
   return (
-    <FellowshipPage
+    <PillarPage
       title="Social Service & Community Development"
-      subtitle="Impacting our communities with love, service, and practical help."
-      heroIcon={<Globe className="text-focus-yellow" />}
-      cards={[
-        {
-          title: 'Serve with Compassion',
-          body: 'We mobilize students to meet tangible needs, advocate for justice, and care for the marginalized.',
-         
-        },
-        {
-          title: 'Build Community',
-          body: 'Through outreach, partnerships, and volunteer projects, we strengthen relationships and empower local communities.',
-          icon: <Users size={20} />,
-        },
+      subtitle="Practical engagement through love, service, and development initiatives that meet real needs."
+      imageUrl="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
+      paragraphs={[
+        'Social Service and Community Development is faith in action. We mobilize students to serve with compassion, support community needs, and advocate for justice with integrity.',
+        'Through volunteerism, outreach programs, and community partnerships, FOCUS helps communities experience practical transformation that reflects the Gospel.',
+        'Our goal is not only short-term service but also long-term stewardship—building trust, empowering people, and strengthening local relationships.',
       ]}
+      keyPoints={[
+        'Serving with compassion and practical care',
+        'Community outreach and volunteer mobilization',
+        'Environmental stewardship and social outreach',
+        'Development support for tangible community needs',
+      ]}
+      accentLabel="Social Service"
     />
   )
 }

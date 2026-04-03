@@ -1,25 +1,23 @@
-import { BookOpen, GraduationCap } from 'lucide-react'
-
-import { FellowshipPage } from '@/components/fellowship/FellowshipPage'
+import { PillarPage } from '@/components/fellowship/PillarPage'
 
 export default function FellowshipBibleStudyPage() {
   return (
-    <FellowshipPage
+    <PillarPage
       title="Bible Study"
       subtitle="Gospel-centered teaching that moves from understanding to transformation."
-      heroIcon={<BookOpen className="text-focus-yellow" />}
-      cards={[
-        {
-          title: 'Scripture for Real Life',
-          body: 'Students learn to interpret Scripture faithfully and apply it to campus conversations, habits, and decisions.',
-          icon: <BookOpen size={20} />,
-        },
-        {
-          title: 'Training for Leaders',
-          body: 'We equip discussion leaders to teach clearly, serve humbly, and disciple others through consistent study.',
-          icon: <GraduationCap size={20} />,
-        },
+      imageUrl="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1600&auto=format&fit=crop"
+      paragraphs={[
+        'Bible Study is where faith becomes clear and practical. Students learn to interpret Scripture faithfully, then apply it to campus life with courage and humility.',
+        'We train discussion leaders to teach with accuracy, lead with love, and disciple others through consistent weekly rhythms of study and reflection.',
+        'As Scripture shapes hearts, students build lasting discipleship—deepening prayer, integrity, and mission-minded service.',
       ]}
+      keyPoints={[
+        'Scripture interpretation and application',
+        'Leader training for clear teaching',
+        'Weekly study rhythms and reflection',
+        'Turning knowledge into discipleship',
+      ]}
+      accentLabel="Spiritual Nurturing"
     />
   )
 }

@@ -1,25 +1,23 @@
-import { BookOpen, Heart, Users } from 'lucide-react'
-
-import { FellowshipPage } from '@/components/fellowship/FellowshipPage'
+import { PillarPage } from '@/components/fellowship/PillarPage'
 
 export default function FellowshipSpiritualNurturingPage() {
   return (
-    <FellowshipPage
+    <PillarPage
       title="Spiritual Nurturing"
-      subtitle="Growing in faith, prayer, and relationship with Christ together."
-      heroIcon={<BookOpen className="text-focus-yellow" />}
-      cards={[
-        {
-          title: 'Deepen Your Faith',
-          body: 'We guide students through Scripture, prayer, and reflection to cultivate a strong, personal relationship with God.',
-          icon: <Heart size={20} />,
-        },
-        {
-          title: 'Supportive Community',
-          body: 'Small groups, mentorship, and fellowship provide encouragement, accountability, and opportunities for spiritual growth.',
-          icon: <Users size={20} />,
-        },
+      subtitle="Discipleship-driven growth in faith, prayer, and relationship with Christ together."
+      imageUrl="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&auto=format&fit=crop"
+      paragraphs={[
+        'Spiritual Nurturing helps students deepen their relationship with Christ through Scripture, prayer, and guided reflection that strengthens faith in everyday campus life.',
+        'We build supportive communities where accountability is gentle, growth is consistent, and prayer becomes a shared practice that sustains students through every season.',
+        'As disciples grow, they help build the body of Christ—encouraging others, serving faithfully, and living out the Gospel with clarity and love.',
       ]}
+      keyPoints={[
+        'Scripture-centered discipleship',
+        'Prayer teams and reflective practices',
+        'Small groups for accountability and growth',
+        'Building the body of christ through consistent faith',
+      ]}
+      accentLabel="Spiritual Nurturing"
     />
   )
 }

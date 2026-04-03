@@ -1,25 +1,23 @@
-import { Heart, Users, Handshake } from 'lucide-react'
-
-import { FellowshipPage } from '@/components/fellowship/FellowshipPage'
+import { PillarPage } from '@/components/fellowship/PillarPage'
 
 export default function FellowshipFamilyPage() {
   return (
-    <FellowshipPage
+    <PillarPage
       title="Family"
       subtitle="Belonging that forms faith—students support one another through discipleship, prayer, and care."
-      heroIcon={<Heart className="text-focus-yellow" />}
-      cards={[
-        {
-          title: 'Mentorship & Discipleship',
-          body: 'Small groups and mentors help students grow spiritually, make wise decisions, and strengthen their walk with Christ.',
-          icon: <Users size={20} />,
-        },
-        {
-          title: 'Prayer & Community Care',
-          body: 'We build a culture of prayer and practical support—showing up for one another in seasons of joy and need.',
-          icon: <Handshake size={20} />,
-        },
+      imageUrl="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&auto=format&fit=crop"
+      paragraphs={[
+        'FOCUS Family is the heartbeat of campus fellowship. It creates a belonging culture where spiritual growth is consistent and relationships are meaningful.',
+        'We connect students through discipleship mentoring, shared prayer rhythms, and practical care—so everyone feels seen, supported, and strengthened.',
+        'In every fellowship season, family becomes a testimony: students grow together and learn to serve with love, harmony, and compassion.',
       ]}
+      keyPoints={[
+        'Mentorship and discipleship support',
+        'Prayer culture and community care',
+        'Safe space for honest conversations',
+        'Unity, love, and harmony on campus',
+      ]}
+      accentLabel="Fellowship Family"
     />
   )
 }

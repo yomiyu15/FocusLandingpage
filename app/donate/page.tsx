@@ -62,13 +62,13 @@ export default function DonatePage() {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-focus-yellow/30 text-focus-navy">
       <Header />
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-12 md:py-20">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 pt-10 pb-16 md:pb-16">
         {/* hero section */}
-        <div className="text-center mb-8 space-y-3">
-          <h1 className="text-2xl md:text-3xl font-black tracking-tight text-focus-navy">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-black tracking-tight text-focus-navy">
             Support FOCUS
           </h1>
-          <p className="text-black-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-gray-600 mt-3 max-w-3xl mx-auto leading-relaxed font-medium">
             your generosity empowers christian student fellowships across
             ethiopia and beyond
           </p>
