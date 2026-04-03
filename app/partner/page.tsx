@@ -131,7 +131,7 @@ export default function FocusFamilyForm() {
             >
               <div className="flex items-center gap-3 mb-8 border-b border-gray-50 pb-4">
                 <Landmark size={20} className="text-focus-yellow" />
-                <h2 className="font-bold text-focus-navy uppercase tracking-wider text-sm">Ministry & Fees</h2>
+                <h2 className="font-bold text-focus-navy uppercase tracking-wider text-sm">Type of Service in FOCUS MINISTRY</h2>
               </div>
 
               <div className="space-y-6">
