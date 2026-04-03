@@ -28,10 +28,10 @@ export default function AboutPage() {
             <h1 className="text-3xl md:text-4xl font-bold text-focus-navy mb-4">About FOCUS Ministry</h1>
             <h2 className="text-2xl font-bold text-focus-navy mb-3">Who We Are</h2>
             <p className="text-gray-600 leading-relaxed">
-              FOCUS Ministry exists to equip and mobilize the young generation for holistic
-              transformation, primarily within higher educational institutions. The ministry
-              develops spiritually grounded, socially responsible, and leadership-oriented youth who
-              actively contribute to the Church, society, and national development.
+           
+FOCUS Ministry is a faith-based, non-profitable, interdenominational and missional campus and community-based organization established in 1998 GC to equip and mobilize the young generation for holistic transformation primarily within higher educational institutions. The Ministry exists to develop spiritually grounded, socially responsible, and leadership-oriented youth who actively contribute to the Church, society, and national development. 
+In addition, FOCUS Ministry is committed to community service and development initiatives that demonstrate faith in action. Through volunteerism, environmental stewardship, social outreach, and community development activities.
+In summary, FOCUS Ministry exists to transform lives and communities by developing Christ-like leaders who are spiritually mature, socially engaged, and mission-driven. Through holistic youth development, the Ministry envisions a future in which empowered young leaders positively influence the Church, society, and the nation. 
             </p>
           </article>
           <article id="mission" className="rounded-2xl border border-gray-100 bg-white p-8">

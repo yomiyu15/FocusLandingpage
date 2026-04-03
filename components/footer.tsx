@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import Link from 'next/link';
+import { Mail, MapPin, Phone, Facebook, Send, Youtube, Video } from 'lucide-react';
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-focus-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"> {/* reduced from py-12 to py-8 */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6"> {/* reduced mb-8 to mb-6 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
           
           {/* About */}
           <div>
-            <h3 className="font-bold text-lg mb-3 text-focus-yellow">FOCUS</h3> {/* reduced mb-4 to mb-3 */}
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <h3 className="font-bold text-lg mb-3 text-focus-yellow uppercase tracking-wider">FOCUS</h3>
+            <p className="text-gray-300 text-sm leading-relaxed font-medium">
               Faith-based, interdenominational, and missional ministry established in 1998 GC
               to equip and mobilize young leaders for holistic transformation.
             </p>
@@ -22,53 +22,33 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3">Quick Links</h4> {/* mb-4 -> mb-3 */}
-            <ul className="space-y-1.5 text-sm"> {/* reduced spacing between links */}
+            <h4 className="font-semibold text-focus-yellow mb-3 uppercase text-xs tracking-widest">Quick Links</h4>
+            <ul className="space-y-1.5 text-sm font-medium">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Home
-                </Link>
+                <Link href="/" className="text-gray-300 hover:text-focus-yellow transition-colors">Home</Link>
               </li>
               <li>
-                <Link href="/partner" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Become a Partner
-                </Link>
+                <Link href="/about" className="text-gray-300 hover:text-focus-yellow transition-colors">About Us</Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  About Us
-                </Link>
+                <Link href="/fellowship" className="text-gray-300 hover:text-focus-yellow transition-colors">FOCUS Fellowship</Link>
               </li>
               <li>
-                <Link href="/structure" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Structure
-                </Link>
+                <Link href="/donate" className="text-gray-300 hover:text-focus-yellow transition-colors">Donate</Link>
               </li>
               <li>
-                <Link href="/fellowship" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  FOCUS Fellowship
-                </Link>
-              </li>
-             <li>
-                <Link href="/contact" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/donate" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Donate
-                </Link>
+                <Link href="/contact" className="text-gray-300 hover:text-focus-yellow transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3">Contact Info</h4>
-            <ul className="space-y-2 text-sm"> {/* reduced space-y-3 to space-y-2 */}
+            <h4 className="font-semibold text-focus-yellow mb-3 uppercase text-xs tracking-widest">Contact Info</h4>
+            <ul className="space-y-2 text-sm font-medium">
               <li className="flex items-start gap-2">
                 <Mail size={16} className="text-focus-yellow mt-0.5 flex-shrink-0" />
-                <a href="mailto:focusministry26@gmail.com" className="text-gray-300 hover:text-focus-yellow transition-colors">
+                <a href="mailto:focusministry26@gmail.com" className="text-gray-300 hover:text-focus-yellow transition-colors break-all">
                   focusministry26@gmail.com
                 </a>
               </li>
@@ -87,45 +67,49 @@ export function Footer() {
 
           {/* Social Platforms */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3">Social Platforms</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold text-focus-yellow mb-3 uppercase text-xs tracking-widest">Social Platforms</h4>
+            <ul className="space-y-2 text-sm font-medium">
               <li>
-                <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Facebook: FOCUS MINISTRY
+                <a href="https://www.facebook.com/focusministry" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
+                  <Facebook size={14} /> FOCUS MINISTRY
                 </a>
               </li>
               <li>
-                <a href="https://t.me/focusministry2" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  Telegram: @focusministry2
+                <a href="https://t.me/focusministry2" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
+                  <Send size={14} /> Telegram
                 </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/@FocusministryOfficial26" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-focus-yellow transition-colors">
-                  YouTube: @FocusministryOfficial26
+                <a href="https://www.youtube.com/@FocusministryOfficial26" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
+                  <Youtube size={14} /> YouTube
                 </a>
               </li>
               <li>
-                <span className="text-gray-300">TikTok: focus.media50</span>
+                <a href="https://www.tiktok.com/@focus.media50" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
+                  <Video size={14} /> TikTok: focus.media50
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-focus-yellow/20 pt-6"> {/* reduced pt-8 to pt-6 */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>&copy; {currentYear} FOCUS - Fellowship of Oromo Christian University Students. All rights reserved.</p>
+        {/* Divider & Copyright */}
+        <div className="border-t border-white/10 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+            <p className="text-center md:text-left">
+              &copy; {currentYear} FOCUS - Fellowship of Oromo Christian University Students.
+            </p>
             <div className="flex gap-6">
               <Link href="/privacy-policy" className="hover:text-focus-yellow transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-focus-yellow transition-colors">
-                Terms of Service
+              <Link href="/terms" className="hover:text-focus-yellow transition-colors">
+                Terms
               </Link>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
