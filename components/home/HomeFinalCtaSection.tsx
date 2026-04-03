@@ -53,29 +53,29 @@ export function HomeFinalCtaSection() {
               </p>
             </div>
 
-            {/* Action Buttons - Optimized for your specific color requests */}
+          
             <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
-              <Button 
-                asChild 
-                className="group h-14 rounded-2xl bg-focus-yellow px-10 text-sm font-bold text-black shadow-xl shadow-focus-yellow/20 transition-all hover:bg-focus-yellow/90 active:scale-95"
-              >
-                <Link href="/donate" className="flex items-center gap-3">
-                 Donate
-                  <Heart size={16} className="fill-black text-black transition-transform group-hover:scale-110" />
-                </Link>
-              </Button>
-              
-              <Button
-                asChild
-                variant="outline"
-                className="h-14 rounded-2xl border-gray-200 bg-white px-10 text-sm font-bold text-focus-navy transition-all hover:bg-gray-50 hover:border-focus-blue/30 active:scale-95 shadow-sm"
-              >
-                <Link href="/contact" className="flex items-center gap-3">
-                  Get in Touch 
-                  <ArrowRight size={16} className="text-focus-blue" />
-                </Link>
-              </Button>
-            </div>
+  <Button 
+    asChild 
+    className="group h-16 rounded-2xl bg-focus-yellow px-12 text-base font-bold text-black shadow-xl shadow-focus-yellow/20 transition-all hover:bg-focus-yellow/90 active:scale-95"
+  >
+    <Link href="/donate" className="flex items-center gap-3">
+      Donate
+      <Heart size={18} className="fill-black text-black transition-transform group-hover:scale-110" />
+    </Link>
+  </Button>
+  
+  <Button
+    asChild
+    variant="outline"
+    className="h-16 rounded-2xl border-gray-200 bg-white px-12 text-base font-bold text-focus-navy transition-all hover:bg-gray-50 hover:border-focus-blue/30 active:scale-95 shadow-sm"
+  >
+    <Link href="/contact" className="flex items-center gap-3">
+      Get in Touch 
+      <ArrowRight size={18} className="text-focus-blue" />
+    </Link>
+  </Button>
+</div>
           </div>
         </motion.div>
       </div>
