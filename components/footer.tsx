@@ -13,7 +13,8 @@ export function Footer() {
           
           {/* About */}
           <div>
-            <h3 className="font-bold text-lg mb-3 text-focus-yellow uppercase tracking-wider">FOCUS</h3>
+            {/* Title changed to white */}
+            <h3 className="font-bold text-lg mb-3 text-white uppercase tracking-wider">FOCUS</h3>
             <p className="text-gray-300 text-sm leading-relaxed font-medium">
               Faith-based, interdenominational, and missional ministry established in 1998 GC
               to equip and mobilize young leaders for holistic transformation.
@@ -22,7 +23,8 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3 uppercase text-xs tracking-widest">Quick Links</h4>
+            {/* Title changed to white */}
+            <h4 className="font-semibold text-white mb-3 uppercase text-xs tracking-widest">Quick Links</h4>
             <ul className="space-y-1.5 text-sm font-medium">
               <li>
                 <Link href="/" className="text-gray-300 hover:text-focus-yellow transition-colors">Home</Link>
@@ -44,7 +46,8 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3 uppercase text-xs tracking-widest">Contact Info</h4>
+            {/* Title changed to white */}
+            <h4 className="font-semibold text-white mb-3 uppercase text-xs tracking-widest">Contact Info</h4>
             <ul className="space-y-2 text-sm font-medium">
               <li className="flex items-start gap-2">
                 <Mail size={16} className="text-focus-yellow mt-0.5 flex-shrink-0" />
@@ -67,26 +70,27 @@ export function Footer() {
 
           {/* Social Platforms */}
           <div>
-            <h4 className="font-semibold text-focus-yellow mb-3 uppercase text-xs tracking-widest">Social Platforms</h4>
+            {/* Title changed to white */}
+            <h4 className="font-semibold text-white mb-3 uppercase text-xs tracking-widest">Social Platforms</h4>
             <ul className="space-y-2 text-sm font-medium">
               <li>
                 <a href="https://www.facebook.com/focusministry" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
-                  <Facebook size={14} /> FOCUS MINISTRY
+                  <Facebook size={14} className="text-focus-yellow" /> FOCUS MINISTRY
                 </a>
               </li>
               <li>
                 <a href="https://t.me/focusministry2" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
-                  <Send size={14} /> Telegram
+                  <Send size={14} className="text-focus-yellow" /> Telegram
                 </a>
               </li>
               <li>
                 <a href="https://www.youtube.com/@FocusministryOfficial26" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
-                  <Youtube size={14} /> YouTube
+                  <Youtube size={14} className="text-focus-yellow" /> YouTube
                 </a>
               </li>
               <li>
                 <a href="https://www.tiktok.com/@focus.media50" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-focus-yellow transition-colors">
-                  <Video size={14} /> TikTok: focus.media50
+                  <Video size={14} className="text-focus-yellow" /> TikTok: focus.media50
                 </a>
               </li>
             </ul>

@@ -213,15 +213,15 @@
   }
 
   .focus-yellow {
-    @apply text-[#FFDD00];
+    @apply text-[#FFF200];
   }
   
   .bg-focus-yellow {
-    @apply bg-[#FFDD00];
+    @apply bg-[#FFF200];
   }
   
   .border-focus-yellow {
-    @apply border-[#FFDD00];
+    @apply border-[#FFF200];
   }
 
   .focus-blue {
@@ -229,7 +229,7 @@
   }
   
   .bg-focus-blue {
-    @apply bg-[#0C0DF5];
+    @apply bg-[#0033CC];
   }
   
   .border-focus-blue {
@@ -241,7 +241,7 @@
   }
   
   .bg-focus-navy {
-    @apply bg-[#001E6B];
+    @apply bg-[#0033CC];
   }
   
   .border-focus-navy {
